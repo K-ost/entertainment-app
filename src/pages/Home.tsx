@@ -1,42 +1,42 @@
-import Card from "../components/Card/Card"
-import { CardType, ServerResponseType } from "../types"
-import Slider from "../components/Slider"
-import { useQuery } from "@tanstack/react-query"
-import { API_URL, getData } from "../api/api"
-import { useAppStore } from "../store/store"
-import LoadingSkelets from "../components/LoadingSkelets"
-import ReSignIn from "../components/ReSignIn"
-import Layout from "../components/Layout"
+import Card from "../components/Card/Card";
+import Slider from "../components/Slider";
+import LoadingSkelets from "../components/LoadingSkelets";
+import Layout from "../components/Layout";
+import useQueryData from "../hooks/useQueryData";
+import { Video } from "../types";
 
 function Home() {
-  const { accessToken } = useAppStore()
+  const trendsQuery = useQueryData<Video[]>({
+    key: ["trends", "true"],
+    uri: "/videos?isTrending=true",
+  });
 
-  const trendsQuery = useQuery({
-    queryKey: ['trends', '1'],
-    queryFn: () => getData<ServerResponseType<CardType[]>>({ method: 'GET', url: `${API_URL}/videos?trends=1`, token: accessToken! })
-  })
-  const recommendedQuery = useQuery({
-    queryKey: ['trends', '0'],
-    queryFn: () => getData<ServerResponseType<CardType[]>>({ method: 'GET', url: `${API_URL}/videos?trends=0`, token: accessToken! })
-  })
+  const recommendedQuery = useQueryData<Video[]>({
+    key: ["trends", "false"],
+    uri: "/videos?isTrending=false",
+  });
 
-  if (trendsQuery.isLoading || recommendedQuery.isLoading) return <LoadingSkelets slider />
-  if (trendsQuery.isError || recommendedQuery.isError) return <p>Server error</p>
-  if (trendsQuery.data!.msg === 'Invalid token') return <ReSignIn />
+  if (trendsQuery.isLoading || recommendedQuery.isLoading)
+    return <LoadingSkelets slider />;
+  if (trendsQuery.isError || recommendedQuery.isError)
+    return <p>Server error</p>;
 
   return (
     <Layout>
       <h1>Trending</h1>
       <div className="mg-bottom">
-        <Slider<CardType> list={trendsQuery.data!.data} />
+        {trendsQuery.isSuccess && <Slider<Video> list={trendsQuery.data} />}
       </div>
 
       <h2>Recommended for you</h2>
       <div className="grid grid-4 grid-tb-3 grid-mb-2">
-        {recommendedQuery.data!.data.map(el => <Card key={el._id} el={el} type="card" />)}
+        {recommendedQuery.isSuccess &&
+          recommendedQuery.data.map((el) => (
+            <Card key={el.id} el={el} type="card" />
+          ))}
       </div>
     </Layout>
-  )
+  );
 }
 
-export default Home
+export default Home;
