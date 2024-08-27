@@ -5,5 +5,7 @@ export const getImageLink = (url: string): string => {
 
 // getSortQuery
 export const getSortQuery = (value: string): string => {
-  return value === "default" ? "" : `&_sort=${value}`;
+  const sortName = value.split("-")[0];
+  const sortKey = value.split("-")[1];
+  return value === "default" ? "" : `&_sort=${sortName}&_order=${sortKey}`;
 };

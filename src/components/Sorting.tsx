@@ -8,10 +8,10 @@ interface ISorting {
 
 const sortList: SelectBoxItemType[] = [
   { name: "Default", value: "default" },
-  { name: "Title [A-Z]", value: "title" },
-  { name: "Title [Z-A]", value: "-title" },
-  { name: "New ones first", value: "-year" },
-  { name: "Old ones first", value: "year" },
+  { name: "Title [A-Z]", value: "title-asc" },
+  { name: "Title [Z-A]", value: "title-desc" },
+  { name: "New ones first", value: "year-desc" },
+  { name: "Old ones first", value: "year-asc" },
 ];
 
 // Styles

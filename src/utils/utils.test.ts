@@ -8,12 +8,12 @@ describe("Utils", () => {
   });
 
   it("getSortQuery - title asc value", () => {
-    const result = getSortQuery("title");
-    expect(result).toStrictEqual("&_sort=title");
+    const result = getSortQuery("title-asc");
+    expect(result).toStrictEqual("&_sort=title&_order=asc");
   });
 
   it("getSortQuery - year desc value", () => {
-    const result = getSortQuery("-year");
-    expect(result).toStrictEqual("&_sort=-year");
+    const result = getSortQuery("year-desc");
+    expect(result).toStrictEqual("&_sort=year&_order=desc");
   });
 });
