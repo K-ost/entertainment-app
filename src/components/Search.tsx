@@ -1,16 +1,16 @@
-import Input from "../ui/Input"
-import { useDebounce } from "../utils/debounce"
-import { useNavigate, useSearchParams } from "react-router-dom"
+import Input from "../ui/Input";
+import { useDebounce } from "../hooks/useDebounce";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const Search: React.FC = () => {
-  let [_, setSearchParams] = useSearchParams()
-  const navigate = useNavigate()
+  let [_, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
 
   // handleSearch
-  const handleSearch = useDebounce(term => {
-    setSearchParams({ q: term })
-    navigate(`/search?q=${term}`)
-  }, 500)
+  const handleSearch = useDebounce((term) => {
+    setSearchParams({ q: term });
+    navigate(`/search?q=${term}`);
+  }, 500);
 
   return (
     <div className="search_field">
@@ -21,7 +21,7 @@ const Search: React.FC = () => {
         search
       />
     </div>
-  )
-}
+  );
+};
 
-export default Search
+export default Search;
