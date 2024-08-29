@@ -11,22 +11,22 @@ import ProfilePage from "./pages/ProfilePage";
 import SearchPage from "./pages/SearchPage";
 
 function App() {
-  const auth = true;
+  const auth = false;
 
   return (
     <div>
       <Routes>
-        <Route path="/" element={<ProtectedRoutes isAuth={auth} />}>
+        <Route path="/" element={<PublicRoutes isAuth={auth} />}>
           <Route path="/" index element={<Home />} />
           <Route path="/movies" element={<MoviesScreen />} />
           <Route path="/tv" element={<TvPage />} />
-          <Route path="/bookmarks" element={<Bookmarks />} />
-          <Route path="/profile" element={<ProfilePage />} />
           <Route path="/search" element={<SearchPage />} />
-        </Route>
-        <Route path="/" element={<PublicRoutes isAuth={auth} />}>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignUpPage />} />
+        </Route>
+        <Route path="/" element={<ProtectedRoutes isAuth={auth} />}>
+          <Route path="/bookmarks" element={<Bookmarks />} />
+          <Route path="/profile" element={<ProfilePage />} />
         </Route>
       </Routes>
     </div>

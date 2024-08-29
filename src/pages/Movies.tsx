@@ -1,12 +1,11 @@
-import Card from "../components/Card/Card";
-import { Video } from "../types";
-import LoadingSkelets from "../components/LoadingSkelets";
 import { useState } from "react";
 import { getSortQuery } from "../utils/utils";
 import Sorting from "../components/Sorting";
+import { Video } from "../types";
 import PageTitle from "../ui/PageTitle";
 import Layout from "../components/Layout";
 import useQueryData from "../hooks/useQueryData";
+import CardList from "../components/Card/CardList";
 
 function MoviesScreen() {
   const [sort, setSort] = useState<string>("default");
@@ -17,19 +16,17 @@ function MoviesScreen() {
     uri: `/videos?category=Movie${sortQuery}`,
   });
 
-  if (isLoading) return <LoadingSkelets />;
-  if (isError) return <p>Server error</p>;
-
   return (
     <Layout>
       <PageTitle title="Movies">
-        <Sorting setSort={setSort} value={sort} />
+        {isSuccess && <Sorting setSort={setSort} value={sort} />}
       </PageTitle>
 
-      <div className="grid grid-4 grid-tb-3 grid-mb-2">
-        {isSuccess &&
-          data.map((el) => <Card key={el.id} el={el} type="card" />)}
-      </div>
+      <CardList
+        data={isSuccess ? data : []}
+        isError={isError}
+        isLoading={isLoading}
+      />
     </Layout>
   );
 }

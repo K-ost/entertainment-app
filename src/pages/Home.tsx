@@ -1,9 +1,10 @@
-import Card from "../components/Card/Card";
 import Slider from "../components/Slider";
 import LoadingSkelets from "../components/LoadingSkelets";
 import Layout from "../components/Layout";
 import useQueryData from "../hooks/useQueryData";
 import { Video } from "../types";
+import AlertError from "../components/AlertError";
+import CardList from "../components/Card/CardList";
 
 function Home() {
   const trendsQuery = useQueryData<Video[]>({
@@ -16,25 +17,23 @@ function Home() {
     uri: "/videos?isTrending=false",
   });
 
-  if (trendsQuery.isLoading || recommendedQuery.isLoading)
-    return <LoadingSkelets slider />;
-  if (trendsQuery.isError || recommendedQuery.isError)
-    return <p>Server error</p>;
-
   return (
     <Layout>
       <h1>Trending</h1>
-      <div className="mg-bottom">
-        {trendsQuery.isSuccess && <Slider<Video> list={trendsQuery.data} />}
-      </div>
+      {trendsQuery.isSuccess && (
+        <div className="mg-bottom">
+          {<Slider<Video> list={trendsQuery.data} />}
+        </div>
+      )}
+      {trendsQuery.isLoading && <LoadingSkelets slider />}
+      {trendsQuery.isError && <AlertError />}
 
       <h2>Recommended for you</h2>
-      <div className="grid grid-4 grid-tb-3 grid-mb-2">
-        {recommendedQuery.isSuccess &&
-          recommendedQuery.data.map((el) => (
-            <Card key={el.id} el={el} type="card" />
-          ))}
-      </div>
+      <CardList
+        data={recommendedQuery.isSuccess ? recommendedQuery.data : []}
+        isError={recommendedQuery.isError}
+        isLoading={recommendedQuery.isLoading}
+      />
     </Layout>
   );
 }

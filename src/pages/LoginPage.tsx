@@ -7,7 +7,9 @@ function LoginPage() {
   return (
     <div>
       <div className="formbox-logo">
-        <img src={logo} alt="" />
+        <Link to="/">
+          <img src={logo} alt="" />
+        </Link>
       </div>
       <div className="formbox">
         <h1>Login</h1>
