@@ -2,11 +2,10 @@ import Input from "../ui/Input";
 import { useDebounce } from "../hooks/useDebounce";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
-const Search: React.FC = () => {
+const Search = (): JSX.Element => {
   let [_, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
 
-  // handleSearch
   const handleSearch = useDebounce((term) => {
     setSearchParams({ q: term });
     navigate(`/search?q=${term}`);

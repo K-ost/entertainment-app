@@ -1,11 +1,12 @@
-import { Navigate, Outlet } from "react-router-dom"
+import { Navigate, Outlet } from "react-router-dom";
 
-interface IPublicRoutes {
-  isAuth: boolean
-}
+type PublicRoutesProps = {
+  isAuth: boolean;
+};
 
-const PublicRoutes: React.FC<IPublicRoutes> = ({ isAuth }) => {
-  return isAuth ? <Navigate to="/" /> : <Outlet />
-}
+const PublicRoutes = (props: PublicRoutesProps): JSX.Element => {
+  const { isAuth } = props;
+  return isAuth ? <Navigate to="/" /> : <Outlet />;
+};
 
-export default PublicRoutes
+export default PublicRoutes;

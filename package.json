@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "start": "concurrently \"npm run dev\" \"json-server db.json -p 8000\"",
+    "start": "concurrently \"npm run dev\" \"json-server db.json -p 8000 -d 300\"",
     "test": "vitest"
   },
   "dependencies": {

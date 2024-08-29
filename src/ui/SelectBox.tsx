@@ -5,13 +5,15 @@ export type SelectBoxItemType = {
   name: string;
 };
 
-interface ISelectBox {
+type SelectBoxProps = {
   handler: React.Dispatch<React.SetStateAction<string>>;
   value: string;
   list: SelectBoxItemType[];
-}
+};
 
-const SelectBox: React.FC<ISelectBox> = ({ handler, list, value }) => {
+const SelectBox = (props: SelectBoxProps): JSX.Element => {
+  const { handler, list, value } = props;
+
   return (
     <FormControl size="small">
       <TextField

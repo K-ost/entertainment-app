@@ -1,22 +1,22 @@
-import Aside from "./Aside/Aside"
-import Search from "./Search"
+import Aside from "./Aside/Aside";
+import Search from "./Search";
 
-interface ILayout {
-  children: React.ReactNode
-}
+type LayoutProps = {
+  children: React.ReactNode;
+};
 
-const Layout: React.FC<ILayout> = ({ children }) => {
+const Layout = (props: LayoutProps): JSX.Element => {
+  const { children } = props;
+
   return (
     <div className="app">
       <Aside />
       <div className="app-container">
         <Search />
-        <div className="app-body">
-          {children}
-        </div>
+        <div className="app-body">{children}</div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

@@ -1,9 +1,9 @@
-import styled from "styled-components"
-import play from "../assets/play.svg"
+import styled from "styled-components";
+import play from "../assets/play.svg";
 
 // Styled
 export const PlayOverlay = styled.span`
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -16,22 +16,22 @@ export const PlayOverlay = styled.span`
   transition: all 200ms ease-in-out;
   opacity: 0;
   visibility: hidden;
-`
+`;
 const PlayButton = styled.span`
-  background: rgba(255,255,255,0.25) url(${play}) 9px center no-repeat;
+  background: rgba(255, 255, 255, 0.25) url(${play}) 9px center no-repeat;
   border-radius: 48px;
   display: inline-block;
   font-size: var(--XS);
   line-height: 20px;
   padding: 14px 24px 14px 58px;
-`
+`;
 
-const Play: React.FC = () => {
+const Play = (): JSX.Element => {
   return (
     <PlayOverlay>
       <PlayButton>Play</PlayButton>
     </PlayOverlay>
-  )
-}
+  );
+};
 
-export default Play
+export default Play;

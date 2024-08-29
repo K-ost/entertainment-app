@@ -1,11 +1,13 @@
 import Skelet from "../ui/Skelet";
 
-interface ILoadingSkelets {
+type LoadingSkeletsProps = {
   number?: number;
   slider?: boolean;
-}
+};
 
-const LoadingSkelets: React.FC<ILoadingSkelets> = ({ number = 16, slider }) => {
+const LoadingSkelets = (props: LoadingSkeletsProps): JSX.Element => {
+  const { number = 16, slider } = props;
+
   return (
     <div>
       {slider ? (

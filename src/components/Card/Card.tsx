@@ -11,12 +11,14 @@ import {
   MetaTop,
 } from "./CardStyles";
 
-interface ICard {
+type CardProps = {
   el: Video;
   type?: VideoViewType;
-}
+};
 
-const Card: React.FC<ICard> = ({ el, type = "card" }) => {
+const Card = (props: CardProps): JSX.Element => {
+  const { el, type = "card" } = props;
+
   return (
     <Item>
       <ImgBox $slide={type === "trend"}>
@@ -24,7 +26,7 @@ const Card: React.FC<ICard> = ({ el, type = "card" }) => {
         <Play />
       </ImgBox>
       <ItemBookMark>
-        <Bookmark active={false} handler={() => {}} disabled={false} />
+        <Bookmark active={false} />
       </ItemBookMark>
       <Meta $slide={type === "trend"}>
         <MetaTop $slide={type === "trend"}>

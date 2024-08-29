@@ -3,11 +3,12 @@ import "swiper/css";
 import Card from "./Card/Card";
 import { Video } from "../types";
 
-interface ISlider<T> {
+type SliderProps<T> = {
   list: T[];
-}
+};
 
-const Slider = <T extends Video>({ list }: ISlider<T>) => {
+const Slider = <T extends Video>(props: SliderProps<T>): JSX.Element => {
+  const { list } = props;
   return (
     <Swiper
       spaceBetween={16}

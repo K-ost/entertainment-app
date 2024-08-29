@@ -1,14 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import icon from "../assets/bookmark.svg";
 import iconHover from "../assets/bookmark-hover.svg";
 import iconActive from "../assets/bookmark-active.svg";
 import iconHoverActive from "../assets/bookmark-hover-active.svg";
 
-interface IBookmark {
+type BookmarkProps = {
   active: boolean;
-  disabled: boolean;
-  handler: () => void;
-}
+};
 
 // Styles
 const Button = styled.button<{ $active: boolean }>`
@@ -37,8 +36,19 @@ const Button = styled.button<{ $active: boolean }>`
   }
 `;
 
-const Bookmark: React.FC<IBookmark> = ({ active, disabled, handler }) => {
-  return <Button $active={active} onClick={handler} disabled={disabled} />;
+const Bookmark = (props: BookmarkProps): JSX.Element => {
+  const { active } = props;
+  const auth = false;
+  const navigate = useNavigate();
+
+  const handler = () => {
+    if (!auth) {
+      return navigate("/login");
+    }
+    console.log("Added");
+  };
+
+  return <Button $active={active} onClick={handler} />;
 };
 
 export default Bookmark;

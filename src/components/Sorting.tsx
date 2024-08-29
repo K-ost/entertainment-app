@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import SelectBox, { SelectBoxItemType } from "../ui/SelectBox";
 
-interface ISorting {
+type SortingProps = {
   setSort: React.Dispatch<React.SetStateAction<string>>;
   value: string;
-}
+};
 
 const sortList: SelectBoxItemType[] = [
   { name: "Default", value: "default" },
@@ -18,17 +18,14 @@ const sortList: SelectBoxItemType[] = [
 const SortBox = styled.div`
   align-items: center;
   display: flex;
-  margin: 0 0 20px;
-  &:last-child {
-    margin: 0;
-  }
 `;
 const SortTitle = styled.div`
   font-size: var(--fs);
   margin: 0 16px 0 0;
 `;
 
-const Sorting: React.FC<ISorting> = ({ setSort, value }) => {
+const Sorting = (props: SortingProps): JSX.Element => {
+  const { setSort, value } = props;
   return (
     <SortBox>
       <SortTitle>Sort by</SortTitle>

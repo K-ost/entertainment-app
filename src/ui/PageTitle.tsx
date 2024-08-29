@@ -1,9 +1,9 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
-interface IPageTitle {
-  children: React.ReactNode
-  title: string
-}
+type PageTitleProps = {
+  children: React.ReactNode;
+  title: string;
+};
 
 // Styles
 const PageHead = styled.div`
@@ -11,16 +11,20 @@ const PageHead = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 0 0 24px;
-  h1 { margin: 0; }
-`
+  h1 {
+    margin: 0;
+  }
+`;
 
-const PageTitle: React.FC<IPageTitle> = ({ children, title }) => {
+const PageTitle = (props: PageTitleProps): JSX.Element => {
+  const { children, title } = props;
+
   return (
     <PageHead>
       <h1>{title}</h1>
       {children}
     </PageHead>
-  )
-}
+  );
+};
 
-export default PageTitle
+export default PageTitle;

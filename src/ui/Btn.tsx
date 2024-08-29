@@ -3,14 +3,14 @@ import styled from "styled-components";
 type BtnSize = "small" | "large";
 type BtnColor = "danger" | "secondary";
 
-interface IBtn {
+type BtnProps = {
   color?: BtnColor;
   disabled?: boolean;
   expand?: boolean;
   handler: any;
   size?: BtnSize;
   title: string;
-}
+};
 
 // Styles
 const Button = styled.button<{
@@ -52,14 +52,16 @@ const Button = styled.button<{
   }
 `;
 
-const Btn: React.FC<IBtn> = ({
-  color = "danger",
-  disabled,
-  expand = false,
-  handler,
-  size = "large",
-  title,
-}) => {
+const Btn = (props: BtnProps): JSX.Element => {
+  const {
+    color = "danger",
+    disabled,
+    expand = false,
+    handler,
+    size = "large",
+    title,
+  } = props;
+
   return (
     <Button
       $expand={expand}

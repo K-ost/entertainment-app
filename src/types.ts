@@ -18,5 +18,4 @@ export type UserType = {
   bookmarks?: string[];
   email: string;
   role: UserRole;
-  __v?: number;
 };
