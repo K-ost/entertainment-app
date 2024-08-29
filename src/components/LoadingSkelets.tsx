@@ -11,7 +11,10 @@ const LoadingSkelets: React.FC<ILoadingSkelets> = ({ number = 16, slider }) => {
       {slider ? (
         <Skelet margin={40} height={180} />
       ) : (
-        <div className="grid grid-4 grid-tb-3 grid-mb-2">
+        <div
+          className="grid grid-4 grid-tb-3 grid-mb-2"
+          data-testid="loadingSkelets"
+        >
           {[...Array(number)].map((__: null, index: number) => (
             <div key={index}>
               <Skelet height={140} margin={10} />
