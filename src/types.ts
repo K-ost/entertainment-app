@@ -1,7 +1,7 @@
 export type VideoViewType = "card" | "trend";
 
 export type Video = {
-  id: any;
+  id: string;
   title: string;
   thumbnail: string;
   year: number;

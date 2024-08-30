@@ -8,6 +8,7 @@ import { useAuthStore } from "../store/useAuthStore";
 
 type BookmarkProps = {
   active: boolean;
+  id: string;
 };
 
 // Styles
@@ -38,7 +39,7 @@ const Button = styled.button<{ $active: boolean }>`
 `;
 
 const Bookmark = (props: BookmarkProps): JSX.Element => {
-  const { active } = props;
+  const { active, id } = props;
   const { auth } = useAuthStore();
   const navigate = useNavigate();
 

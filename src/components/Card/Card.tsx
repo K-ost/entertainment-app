@@ -27,7 +27,7 @@ const Card = (props: CardProps): JSX.Element => {
         <Play />
       </ImgBox>
       <ItemBookMark>
-        <Bookmark active={false} />
+        <Bookmark active={false} id={el.id} />
       </ItemBookMark>
       <Meta $slide={type === "trend"}>
         <MetaTop $slide={type === "trend"}>

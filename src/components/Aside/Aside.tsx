@@ -1,7 +1,7 @@
 import logo from "../../assets/logo.svg";
 import avatar from "../../assets/avatar.png";
 import { Link, NavLink } from "react-router-dom";
-import { Sidebar, AsideUser, Logo, Nav } from "./AsideStyles";
+import { AsideUser, Sidebar, Logo, NavMenu } from "./AsideStyles";
 import { Tooltip } from "@mui/material";
 import { useAuthStore } from "../../store/useAuthStore";
 
@@ -14,7 +14,7 @@ const Aside = (): JSX.Element => {
         <img src={logo} alt="" />
       </Logo>
 
-      <Nav>
+      <NavMenu>
         <ul>
           <li>
             <NavLink to="/">
@@ -81,7 +81,7 @@ const Aside = (): JSX.Element => {
             </NavLink>
           </li>
         </ul>
-      </Nav>
+      </NavMenu>
 
       <AsideUser>
         <Link to="/profile">
