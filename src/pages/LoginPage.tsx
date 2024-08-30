@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import Input from "../ui/Input";
 import Btn from "../ui/Btn";
-import { useAppStore } from "../store/store";
 import { LoginData } from "../types";
+import { useAuthStore } from "../store/useAuthStore";
 
 function LoginPage() {
-  const { setAuth } = useAppStore();
+  const { setLogin } = useAuthStore();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
@@ -20,7 +20,7 @@ function LoginPage() {
 
   useEffect(() => {
     if (data && data.user) {
-      setAuth(data);
+      setLogin(data);
     }
   }, [data]);
 

@@ -3,10 +3,10 @@ import avatar from "../../assets/avatar.png";
 import { Link, NavLink } from "react-router-dom";
 import { Sidebar, AsideUser, Logo, Nav } from "./AsideStyles";
 import { Tooltip } from "@mui/material";
-import { useAppStore } from "../../store/store";
+import { useAuthStore } from "../../store/useAuthStore";
 
 const Aside = (): JSX.Element => {
-  const { auth } = useAppStore();
+  const { auth } = useAuthStore();
 
   return (
     <Sidebar>

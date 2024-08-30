@@ -4,6 +4,7 @@ import icon from "../assets/bookmark.svg";
 import iconHover from "../assets/bookmark-hover.svg";
 import iconActive from "../assets/bookmark-active.svg";
 import iconHoverActive from "../assets/bookmark-hover-active.svg";
+import { useAuthStore } from "../store/useAuthStore";
 
 type BookmarkProps = {
   active: boolean;
@@ -38,17 +39,17 @@ const Button = styled.button<{ $active: boolean }>`
 
 const Bookmark = (props: BookmarkProps): JSX.Element => {
   const { active } = props;
-  const auth = false;
+  const { auth } = useAuthStore();
   const navigate = useNavigate();
 
-  const handler = () => {
+  const addBookmark = () => {
     if (!auth) {
       return navigate("/login");
     }
     console.log("Added");
   };
 
-  return <Button $active={active} onClick={handler} />;
+  return <Button $active={active} onClick={addBookmark} />;
 };
 
 export default Bookmark;

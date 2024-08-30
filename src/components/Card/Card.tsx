@@ -10,6 +10,7 @@ import {
   MetaItem,
   MetaTop,
 } from "./CardStyles";
+import { Typography } from "@mui/material";
 
 type CardProps = {
   el: Video;
@@ -40,7 +41,7 @@ const Card = (props: CardProps): JSX.Element => {
           </MetaItem>
           <MetaItem>{el.rating}</MetaItem>
         </MetaTop>
-        <h4>{el.title}</h4>
+        <Typography variant="h4">{el.title}</Typography>
       </Meta>
     </Item>
   );

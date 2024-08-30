@@ -5,6 +5,7 @@ import useQueryData from "../hooks/useQueryData";
 import { Video } from "../types";
 import AlertError from "../components/AlertError";
 import CardList from "../components/Card/CardList";
+import { Typography } from "@mui/material";
 
 function Home() {
   const trendsQuery = useQueryData<Video[]>({
@@ -19,7 +20,7 @@ function Home() {
 
   return (
     <Layout>
-      <h1>Trending</h1>
+      <Typography variant="h2">Trending</Typography>
       {trendsQuery.isSuccess && (
         <div className="mg-bottom">
           {<Slider<Video> list={trendsQuery.data} />}
@@ -28,7 +29,7 @@ function Home() {
       {trendsQuery.isLoading && <LoadingSkelets slider />}
       {trendsQuery.isError && <AlertError />}
 
-      <h2>Recommended for you</h2>
+      <Typography variant="h2">Recommended for you</Typography>
       <CardList
         data={recommendedQuery.isSuccess ? recommendedQuery.data : []}
         isError={recommendedQuery.isError}

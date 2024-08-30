@@ -1,29 +1,27 @@
-import styled from "styled-components";
+import { Box, Typography } from "@mui/material";
 
 type PageTitleProps = {
   children: React.ReactNode;
   title: string;
 };
 
-// Styles
-const PageHead = styled.div`
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 0 24px;
-  h1 {
-    margin: 0;
-  }
-`;
-
 const PageTitle = (props: PageTitleProps): JSX.Element => {
   const { children, title } = props;
 
   return (
-    <PageHead>
-      <h1>{title}</h1>
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        marginBottom: "20px",
+      }}
+    >
+      <Typography variant="h1" sx={{ margin: 0 }}>
+        {title}
+      </Typography>
       {children}
-    </PageHead>
+    </Box>
   );
 };
 
