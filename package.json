@@ -8,7 +8,8 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "start": "concurrently \"npm run dev\" \"json-server db.json -p 8000 -d 300\"",
+    "server": "json-server-auth db.json -p 8000 -d 300",
+    "start": "concurrently \"npm run dev\" \"npm run server\"",
     "test": "vitest"
   },
   "dependencies": {
@@ -42,6 +43,7 @@
     "factory.ts": "^1.4.1",
     "jsdom": "^25.0.0",
     "json-server": "^0.17.4",
+    "json-server-auth": "^2.1.0",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
     "vitest": "^2.0.5"
