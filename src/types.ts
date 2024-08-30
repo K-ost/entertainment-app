@@ -12,10 +12,21 @@ export type Video = {
 
 export type UserRole = "admin" | "user";
 
-export type UserType = {
+export type User = {
   id: string;
   avatar: string;
-  bookmarks?: string[];
+  bookmarks: string[];
   email: string;
   role: UserRole;
+  password: string;
+};
+
+export type LoginData = {
+  email: string;
+  password: string;
+};
+
+export type LoginResponse = {
+  accessToken: string;
+  user: Omit<User, "password">;
 };

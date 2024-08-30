@@ -3,9 +3,10 @@ import avatar from "../../assets/avatar.png";
 import { Link, NavLink } from "react-router-dom";
 import { Sidebar, AsideUser, Logo, Nav } from "./AsideStyles";
 import { Tooltip } from "@mui/material";
+import { useAppStore } from "../../store/store";
 
 const Aside = (): JSX.Element => {
-  const auth = false;
+  const { auth } = useAppStore();
 
   return (
     <Sidebar>
@@ -84,7 +85,7 @@ const Aside = (): JSX.Element => {
 
       <AsideUser>
         <Link to="/profile">
-          {auth && (
+          {auth?.accessToken && (
             <Tooltip title={"Tooltip"} placement="right">
               <img src={avatar} alt="" />
             </Tooltip>

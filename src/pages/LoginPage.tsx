@@ -1,19 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useMutateData from "../hooks/useMutateData";
 import { Link } from "react-router-dom";
-import Btn from "../ui/Btn";
-import Input from "../ui/Input";
 import logo from "../assets/logo.svg";
+import Input from "../ui/Input";
+import Btn from "../ui/Btn";
+import { useAppStore } from "../store/store";
+import { LoginData } from "../types";
 
 function LoginPage() {
+  const { setAuth } = useAppStore();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  const { data, isPending, mutate } = useMutateData({
+  const { data, isPending, mutate } = useMutateData<LoginData>({
     key: ["login"],
     method: "POST",
     uri: "/login",
   });
+
+  useEffect(() => {
+    if (data && data.user) {
+      setAuth(data);
+    }
+  }, [data]);
 
   return (
     <div>
@@ -38,11 +47,14 @@ function LoginPage() {
         />
         <div className="formbox-btn">
           <Btn
-            handler={() => mutate({ email, password })}
-            title={isPending ? "Loading..." : "Login to your account"}
-            expand
+            variant="contained"
+            color="error"
+            fullWidth
+            onClick={() => mutate({ email, password })}
             disabled={false}
-          />
+          >
+            {isPending ? "Loading..." : "Login to your account"}
+          </Btn>
         </div>
         <div className="text-center">
           Don't have an account? <Link to="/signup">Sign Up</Link>

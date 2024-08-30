@@ -27,3 +27,15 @@ export const mutateData = async <T>(
     throw e;
   }
 };
+
+export const deleteData = async (uri: string) => {
+  try {
+    const response = await fetch(`${API_URL}${uri}`, {
+      method: "DELETE",
+    });
+    const data = await response.json();
+    return data;
+  } catch (e) {
+    throw e;
+  }
+};

@@ -1,17 +1,20 @@
 import { useMutation } from "@tanstack/react-query";
-import { mutateData } from "../api/api";
+import { deleteData, mutateData } from "../api/api";
 
-type useMutateDataProps<T> = {
+type useMutateDataProps = {
   key: string[];
-  method: "POST" | "PATCH" | "PUT";
+  method: "POST" | "PATCH" | "PUT" | "DELETE";
   uri: string;
 };
 
-const useMutateData = <T,>(props: useMutateDataProps<T>) => {
+const useMutateData = <T,>(props: useMutateDataProps) => {
   const { key, method, uri } = props;
   return useMutation({
     mutationKey: key,
-    mutationFn: (data: T) => mutateData(uri, method, data),
+    mutationFn:
+      method === "DELETE"
+        ? () => deleteData(uri)
+        : (data: T) => mutateData<T>(uri, method, data),
   });
 };
 
