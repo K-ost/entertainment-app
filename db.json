@@ -298,7 +298,9 @@
       "password": "$2a$10$FyUsL09OF5lWqsvKJlUGEuuOm2.DJ8Hgk/UxzQFj4veiKOQgcw6h2",
       "avatar": "",
       "role": "user",
-      "bookmarks": [],
+      "bookmarks": [
+        "1"
+      ],
       "id": 1
     }
   ]

@@ -1,6 +1,10 @@
 import { Video, VideoViewType } from "../../types";
 import Bookmark from "../../ui/Bookmark";
-import { getImageLink } from "../../utils/utils";
+import {
+  getImageLink,
+  checkBookmark,
+  updateBookmarks,
+} from "../../utils/utils";
 import Play from "../../ui/Play";
 import {
   ImgBox,
@@ -11,6 +15,10 @@ import {
   MetaTop,
 } from "./CardStyles";
 import { Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { useAuthStore } from "../../store/useAuthStore";
+import useMutateData from "../../hooks/useMutateData";
+import useQueryData from "../../hooks/useQueryData";
 
 type CardProps = {
   el: Video;
@@ -19,6 +27,26 @@ type CardProps = {
 
 const Card = (props: CardProps): JSX.Element => {
   const { el, type = "card" } = props;
+  const { auth, updateAuth } = useAuthStore();
+  const navigate = useNavigate();
+  const isBookmarked = auth?.accessToken
+    ? checkBookmark(el.id, auth.user.bookmarks)
+    : false;
+
+  const { mutate } = useMutateData<{ bookmarks: string[] }>({
+    key: ["user"],
+    method: "PATCH",
+    uri: `/users/${auth?.user.id}`,
+  });
+
+  const addToBookmarks = () => {
+    if (!auth?.accessToken) {
+      return navigate("/login");
+    }
+    const bookmarks = updateBookmarks(isBookmarked, auth.user.bookmarks, el.id);
+    mutate({ bookmarks });
+    updateAuth(bookmarks);
+  };
 
   return (
     <Item>
@@ -27,7 +55,7 @@ const Card = (props: CardProps): JSX.Element => {
         <Play />
       </ImgBox>
       <ItemBookMark>
-        <Bookmark active={false} id={el.id} />
+        <Bookmark active={isBookmarked} handler={addToBookmarks} />
       </ItemBookMark>
       <Meta $slide={type === "trend"}>
         <MetaTop $slide={type === "trend"}>
