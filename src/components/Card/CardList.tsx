@@ -9,7 +9,7 @@ type CardListProps = {
   isError: boolean;
 };
 
-const CardList = (props: CardListProps) => {
+const CardList = (props: CardListProps): JSX.Element => {
   const { data, isError, isLoading } = props;
 
   if (isLoading) return <LoadingSkelets />;

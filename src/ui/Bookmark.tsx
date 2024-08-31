@@ -8,7 +8,7 @@ type BookmarkProps = {
   added: boolean;
 };
 
-const BookmarkButton = styled(Button)<ButtonProps & { added: boolean }>(
+const BookmarkButton = styled(Button)<ButtonProps & { added?: string }>(
   ({ added }) => ({
     backgroundColor: "rgba(0, 0, 0, 0.5)",
     backgroundRepeat: "no-repeat",
@@ -35,7 +35,8 @@ const BookmarkButton = styled(Button)<ButtonProps & { added: boolean }>(
 
 const Bookmark = (props: ButtonProps & BookmarkProps): JSX.Element => {
   const { added } = props;
-  return <BookmarkButton added={added} />;
+  const isAdded = added ? added.toString() : undefined;
+  return <BookmarkButton added={isAdded} />;
 };
 
 export default Bookmark;
