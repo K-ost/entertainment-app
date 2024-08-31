@@ -1,12 +1,30 @@
+import CardList from "../components/Card/CardList";
 import Layout from "../components/Layout";
+import useQueryData from "../hooks/useQueryData";
+import { useAuthStore } from "../store/useAuthStore";
+import { Video } from "../types";
+import { idsToString } from "../utils/utils";
 
 function Bookmarks() {
+  const { auth } = useAuthStore();
+  const ID_URI = auth ? idsToString(auth.user.bookmarks) : "";
+
+  const { data, isError, isLoading, isSuccess } = useQueryData<Video[]>({
+    key: ["bookmarks"],
+    uri: `/videos?${ID_URI}`,
+    enabled: ID_URI.length ? true : false,
+  });
+
   return (
     <Layout>
       <h1>Bookmarks</h1>
-      <div className="grid grid-4 grid-tb-3 grid-mb-2">
-        {<p>Your bookmark list is empty.</p>}
-      </div>
+      <CardList
+        data={isSuccess ? data : []}
+        isError={isError}
+        isLoading={isLoading}
+      />
+      {(isSuccess && !data.length) ||
+        (!ID_URI.length && <p>Your bookmark list is empty.</p>)}
     </Layout>
   );
 }

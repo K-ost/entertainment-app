@@ -25,3 +25,7 @@ export const updateBookmarks = (
     ? bookmarks.filter((bookmark) => bookmark !== videoId)
     : [...bookmarks, videoId];
 };
+
+export const idsToString = (arr: string[]): string => {
+  return arr.map((id) => `id=${id}`).join("&");
+};

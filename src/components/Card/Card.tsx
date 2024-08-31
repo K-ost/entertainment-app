@@ -18,7 +18,6 @@ import { Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useAuthStore } from "../../store/useAuthStore";
 import useMutateData from "../../hooks/useMutateData";
-import useQueryData from "../../hooks/useQueryData";
 
 type CardProps = {
   el: Video;
@@ -29,9 +28,7 @@ const Card = (props: CardProps): JSX.Element => {
   const { el, type = "card" } = props;
   const { auth, updateAuth } = useAuthStore();
   const navigate = useNavigate();
-  const isBookmarked = auth?.accessToken
-    ? checkBookmark(el.id, auth.user.bookmarks)
-    : false;
+  const isBookmarked = auth ? checkBookmark(el.id, auth.user.bookmarks) : false;
 
   const { mutate } = useMutateData<{ bookmarks: string[] }>({
     key: ["user"],
@@ -55,7 +52,7 @@ const Card = (props: CardProps): JSX.Element => {
         <Play />
       </ImgBox>
       <ItemBookMark>
-        <Bookmark active={isBookmarked} handler={addToBookmarks} />
+        <Bookmark added={isBookmarked} onClick={addToBookmarks} />
       </ItemBookMark>
       <Meta $slide={type === "trend"}>
         <MetaTop $slide={type === "trend"}>
