@@ -1,23 +1,17 @@
+import { useNavigate } from "react-router-dom";
+import { Box, Typography } from "@mui/material";
+import { useAuthStore } from "../../store/useAuthStore";
+import useMutateData from "../../hooks/useMutateData";
 import { Video, VideoViewType } from "../../types";
 import Bookmark from "../../ui/Bookmark";
 import {
   getImageLink,
   checkBookmark,
   updateBookmarks,
+  getStyleCondition,
 } from "../../utils/utils";
 import Play from "../../ui/Play";
-import {
-  ImgBox,
-  Item,
-  ItemBookMark,
-  Meta,
-  MetaItem,
-  MetaTop,
-} from "./CardStyles";
-import { Typography } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import { useAuthStore } from "../../store/useAuthStore";
-import useMutateData from "../../hooks/useMutateData";
+import { ImgBox, ItemBookMark, Meta, MetaItem, MetaTop } from "./CardStyles";
 
 type CardProps = {
   el: Video;
@@ -29,6 +23,7 @@ const Card = (props: CardProps): JSX.Element => {
   const { auth, updateAuth } = useAuthStore();
   const navigate = useNavigate();
   const isBookmarked = auth ? checkBookmark(el.id, auth.user.bookmarks) : false;
+  const isSlide = getStyleCondition(type === "trend");
 
   const { mutate } = useMutateData<{ bookmarks: string[] }>({
     key: ["user"],
@@ -37,7 +32,7 @@ const Card = (props: CardProps): JSX.Element => {
   });
 
   const addToBookmarks = () => {
-    if (!auth?.accessToken) {
+    if (!auth) {
       return navigate("/login");
     }
     const bookmarks = updateBookmarks(isBookmarked, auth.user.bookmarks, el.id);
@@ -46,16 +41,19 @@ const Card = (props: CardProps): JSX.Element => {
   };
 
   return (
-    <Item>
-      <ImgBox $slide={type === "trend"}>
+    <Box sx={{ position: "relative" }}>
+      <ImgBox slide={isSlide}>
         <img src={getImageLink(el.thumbnail)} alt="" />
         <Play />
       </ImgBox>
       <ItemBookMark>
-        <Bookmark added={isBookmarked} onClick={addToBookmarks} />
+        <Bookmark
+          added={getStyleCondition(isBookmarked)}
+          onClick={addToBookmarks}
+        />
       </ItemBookMark>
-      <Meta $slide={type === "trend"}>
-        <MetaTop $slide={type === "trend"}>
+      <Meta slide={isSlide}>
+        <MetaTop slide={isSlide}>
           <MetaItem>{el.year}</MetaItem>
           <MetaItem
             className={`metaCategory ${
@@ -66,9 +64,11 @@ const Card = (props: CardProps): JSX.Element => {
           </MetaItem>
           <MetaItem>{el.rating}</MetaItem>
         </MetaTop>
-        <Typography variant="h4">{el.title}</Typography>
+        <Typography variant="h4" sx={{ margin: 0 }}>
+          {el.title}
+        </Typography>
       </Meta>
-    </Item>
+    </Box>
   );
 };
 

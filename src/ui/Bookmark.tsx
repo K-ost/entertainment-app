@@ -5,7 +5,7 @@ import iconActive from "../assets/bookmark-active.svg";
 import iconHoverActive from "../assets/bookmark-hover-active.svg";
 
 type BookmarkProps = {
-  added: boolean;
+  added: string | undefined;
 };
 
 const BookmarkButton = styled(Button)<ButtonProps & { added?: string }>(
@@ -35,8 +35,7 @@ const BookmarkButton = styled(Button)<ButtonProps & { added?: string }>(
 
 const Bookmark = (props: ButtonProps & BookmarkProps): JSX.Element => {
   const { added } = props;
-  const isAdded = added ? added.toString() : undefined;
-  return <BookmarkButton added={isAdded} />;
+  return <BookmarkButton {...props} added={added} />;
 };
 
 export default Bookmark;

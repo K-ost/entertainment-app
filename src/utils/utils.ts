@@ -29,3 +29,7 @@ export const updateBookmarks = (
 export const idsToString = (arr: string[]): string => {
   return arr.map((id) => `id=${id}`).join("&");
 };
+
+export const getStyleCondition = (val: boolean): string | undefined => {
+  return val ? String(val) : undefined;
+};

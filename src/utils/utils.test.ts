@@ -2,6 +2,7 @@ import { describe, expect, it, vi } from "vitest";
 import {
   checkBookmark,
   getSortQuery,
+  getStyleCondition,
   idsToString,
   updateBookmarks,
 } from "./utils";
@@ -45,5 +46,15 @@ describe("Utils", () => {
   it("idsToString", () => {
     const result = idsToString(["1", "2", "3"]);
     expect(result).toStrictEqual("id=1&id=2&id=3");
+  });
+
+  it("getStyleCondition - true", () => {
+    const result = getStyleCondition(true);
+    expect(result).toStrictEqual("true");
+  });
+
+  it("getStyleCondition - false / undefined", () => {
+    const result = getStyleCondition(false);
+    expect(result).toStrictEqual(undefined);
   });
 });
