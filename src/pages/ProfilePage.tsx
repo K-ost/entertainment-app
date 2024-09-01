@@ -21,7 +21,7 @@ function ProfilePage() {
         </Btn>
       </PageTitle>
 
-      <div className="mg-bottom">Hi, {auth?.user.email}</div>
+      <div>Hi, {auth?.user.email}</div>
     </Layout>
   );
 }

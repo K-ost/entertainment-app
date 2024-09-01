@@ -6,6 +6,7 @@ import Input from "../ui/Input";
 import Btn from "../ui/Btn";
 import { LoginData } from "../types";
 import { useAuthStore } from "../store/useAuthStore";
+import { Typography } from "@mui/material";
 
 function LoginPage() {
   const { setLogin } = useAuthStore();
@@ -32,7 +33,7 @@ function LoginPage() {
         </Link>
       </div>
       <div className="formbox">
-        <h1>Login</h1>
+        <Typography variant="h1">Login</Typography>
         <Input
           type="email"
           handler={setEmail}

@@ -5,6 +5,7 @@ import Btn from "../ui/Btn";
 import { useState } from "react";
 import useMutateData from "../hooks/useMutateData";
 import { User } from "../types";
+import { Typography } from "@mui/material";
 
 function SignUpPage() {
   const [email, setEmail] = useState<string>("");
@@ -36,7 +37,7 @@ function SignUpPage() {
         </Link>
       </div>
       <div className="formbox">
-        <h1>Sign Up</h1>
+        <Typography variant="h1">Sign Up</Typography>
         <Input type="email" handler={setEmail} placeholder="Email address" />
         <Input type="password" handler={setPassword} placeholder="Password" />
         <Input

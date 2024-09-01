@@ -7,7 +7,7 @@ export const Sidebar = styled(Box)<BoxProps>(({ theme }) => ({
   borderRadius: 20,
   display: "flex",
   flexDirection: "column",
-  margin: "32px",
+  margin: theme.spacing(4),
   padding: "32px 12px",
   textAlign: "center",
   minWidth: "96px",
@@ -23,7 +23,7 @@ export const Sidebar = styled(Box)<BoxProps>(({ theme }) => ({
   },
   [theme.breakpoints.down("md")]: {
     borderRadius: 0,
-    padding: "16px",
+    padding: theme.spacing(2),
     margin: 0,
   },
 }));

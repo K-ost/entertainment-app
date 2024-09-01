@@ -21,11 +21,7 @@ function Home() {
   return (
     <Layout>
       <Typography variant="h2">Trending</Typography>
-      {trendsQuery.isSuccess && (
-        <div className="mg-bottom">
-          {<Slider<Video> list={trendsQuery.data} />}
-        </div>
-      )}
+      {trendsQuery.isSuccess && <Slider<Video> list={trendsQuery.data} />}
       {trendsQuery.isLoading && <LoadingSkelets slider />}
       {trendsQuery.isError && <AlertError />}
 

@@ -3,6 +3,7 @@ import Layout from "../components/Layout";
 import useQueryData from "../hooks/useQueryData";
 import { Video } from "../types";
 import CardList from "../components/Card/CardList";
+import { Typography } from "@mui/material";
 
 function SearchPage() {
   const [searchParams, _] = useSearchParams();
@@ -15,7 +16,7 @@ function SearchPage() {
 
   return (
     <Layout>
-      <h1>Search results - "{searchQuery}"</h1>
+      <Typography variant="h1">Search results - "{searchQuery}"</Typography>
       <CardList
         data={isSuccess ? data : []}
         isError={isError}

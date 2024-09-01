@@ -1,3 +1,4 @@
+import { Box, Grid } from "@mui/material";
 import { Video } from "../../types";
 import AlertError from "../AlertError";
 import LoadingSkelets from "../LoadingSkelets";
@@ -16,10 +17,14 @@ const CardList = (props: CardListProps): JSX.Element => {
   if (isError) return <AlertError />;
 
   return (
-    <div className="grid grid-4 grid-tb-3 grid-mb-2">
-      {data.map((el) => (
-        <Card key={el.id} el={el} type="card" />
-      ))}
+    <div>
+      <Grid container spacing={4}>
+        {data.map((el) => (
+          <Grid item xs={6} sm={4} md={4} lg={3} key={el.id}>
+            <Card el={el} type="card" />
+          </Grid>
+        ))}
+      </Grid>
     </div>
   );
 };
