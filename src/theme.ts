@@ -22,6 +22,9 @@ export const customTheme = createTheme({
     error: {
       main: "#fc4747",
     },
+    common: {
+      white: "#ffffff",
+    },
   },
   typography: {
     fontFamily: "'Outfit', sans-serif",

@@ -39,14 +39,3 @@ a {
     text-decoration: underline;
   }
 }
-
-/* search_field */
-.searchInput {
-  &::-webkit-search-cancel-button {
-    background: url("./assets/close.svg") center / 20px no-repeat;
-    cursor: pointer;
-    width: 24px;
-    height: 24px;
-    -webkit-appearance: none;
-  }
-}

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import useMutateData from "../hooks/useMutateData";
 import { Link } from "react-router-dom";
-import Input from "../ui/Input";
 import Btn from "../ui/Btn";
+import Input from "../ui/Input";
 import { LoginData } from "../types";
 import { useAuthStore } from "../store/useAuthStore";
 import FormWrapper from "../components/FormWrapper";
@@ -29,15 +29,17 @@ function LoginPage() {
     <FormWrapper title="Login">
       <Input
         type="email"
-        handler={setEmail}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setEmail(e.target.value)
+        }
         placeholder="Email address"
-        error={""}
       />
       <Input
         type="password"
-        handler={setPassword}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setPassword(e.target.value)
+        }
         placeholder="Password"
-        error={""}
       />
       <Box sx={{ padding: "24px 0" }}>
         <Btn

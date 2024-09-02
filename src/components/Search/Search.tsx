@@ -1,8 +1,8 @@
-import Input from "../../ui/Input";
 import { useDebounce } from "../../hooks/useDebounce";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { Box, BoxProps, styled } from "@mui/material";
+import { Box, BoxProps, styled, useTheme } from "@mui/material";
 import searchIcon from "../../assets/search.svg";
+import Input from "../../ui/Input";
 
 // Styles
 const SearchContainer = styled(Box)<BoxProps>(({ theme }) => ({
@@ -24,6 +24,7 @@ const SearchContainer = styled(Box)<BoxProps>(({ theme }) => ({
 const Search = (): JSX.Element => {
   let [_, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
+  const theme = useTheme();
 
   const handleSearch = useDebounce((term) => {
     setSearchParams({ q: term });
@@ -33,10 +34,24 @@ const Search = (): JSX.Element => {
   return (
     <SearchContainer>
       <Input
-        handler={(val) => handleSearch(val)}
-        placeholder="Search for movies or TV series"
         type="search"
-        search
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          handleSearch(e.target.value)
+        }
+        placeholder="Search for movies or TV series"
+        sx={{
+          "& .MuiInputBase-input": {
+            fontSize: "24px",
+            paddingLeft: 0,
+            paddingRight: 0,
+            [theme.breakpoints.down("md")]: {
+              fontSize: "16px",
+            },
+          },
+          "& .MuiInputBase-root::before": {
+            borderBottomColor: "#5a698f",
+          },
+        }}
       />
     </SearchContainer>
   );

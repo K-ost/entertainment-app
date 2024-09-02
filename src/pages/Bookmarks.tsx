@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import CardList from "../components/Card/CardList";
 import Layout from "../components/Layout";
 import useQueryData from "../hooks/useQueryData";
@@ -17,7 +18,7 @@ function Bookmarks() {
 
   return (
     <Layout>
-      <h1>Bookmarks</h1>
+      <Typography variant="h1">Bookmarks</Typography>
       <CardList
         data={isSuccess ? data : []}
         isError={isError}
