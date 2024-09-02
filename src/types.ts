@@ -13,7 +13,7 @@ export type Video = {
 export type UserRole = "admin" | "user";
 
 export type User = {
-  id: string;
+  id: number;
   avatar: string;
   bookmarks: string[];
   email: string;
