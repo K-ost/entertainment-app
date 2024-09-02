@@ -1,25 +1,31 @@
-import { Snackbar, SnackbarContent } from "@mui/material";
+import {
+  Snackbar,
+  SnackbarContent,
+  SnackbarProps,
+  useTheme,
+} from "@mui/material";
+import { useAppStore } from "../store/useAppStore";
 
 type ToastProps = {
-  close?: () => void;
   message: string;
-  show: boolean;
 };
 
-const Toast = (props: ToastProps): JSX.Element => {
-  const { message, show, close } = props;
+const Toast = (props: SnackbarProps & ToastProps): JSX.Element => {
+  const { message } = props;
+  const { setMessage } = useAppStore();
+  const theme = useTheme();
 
   return (
     <Snackbar
       anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
-      autoHideDuration={5000}
-      open={show}
-      onClose={close}
+      autoHideDuration={3000}
+      onClose={() => setMessage("")}
+      {...props}
     >
       <SnackbarContent
         style={{
-          background: "var(--color-semi-dark)",
-          color: "var(--color-white)",
+          background: theme.palette.info.main,
+          color: theme.palette.common.white,
         }}
         message={message}
       />

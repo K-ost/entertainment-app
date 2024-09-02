@@ -7,9 +7,11 @@ import { LoginData } from "../types";
 import { useAuthStore } from "../store/useAuthStore";
 import FormWrapper from "../components/FormWrapper";
 import { Box } from "@mui/material";
+import { useAppStore } from "../store/useAppStore";
 
 function LoginPage() {
   const { setLogin } = useAuthStore();
+  const { setMessage } = useAppStore();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
@@ -20,8 +22,13 @@ function LoginPage() {
   });
 
   useEffect(() => {
-    if (data && data.user) {
-      setLogin(data);
+    if (data) {
+      if (data.user) {
+        setLogin(data);
+        setMessage("You've been succesfully logged");
+      } else {
+        setMessage(data);
+      }
     }
   }, [data]);
 
