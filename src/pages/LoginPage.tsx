@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import useMutateData from "../hooks/useMutateData";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.svg";
 import Input from "../ui/Input";
 import Btn from "../ui/Btn";
 import { LoginData } from "../types";
 import { useAuthStore } from "../store/useAuthStore";
-import { Typography } from "@mui/material";
+import FormWrapper from "../components/FormWrapper";
+import { Box } from "@mui/material";
 
 function LoginPage() {
   const { setLogin } = useAuthStore();
@@ -26,42 +26,34 @@ function LoginPage() {
   }, [data]);
 
   return (
-    <div>
-      <div className="formbox-logo">
-        <Link to="/">
-          <img src={logo} alt="" />
-        </Link>
-      </div>
-      <div className="formbox">
-        <Typography variant="h1">Login</Typography>
-        <Input
-          type="email"
-          handler={setEmail}
-          placeholder="Email address"
-          error={""}
-        />
-        <Input
-          type="password"
-          handler={setPassword}
-          placeholder="Password"
-          error={""}
-        />
-        <div className="formbox-btn">
-          <Btn
-            variant="contained"
-            color="error"
-            fullWidth
-            onClick={() => mutate({ email, password })}
-            disabled={false}
-          >
-            {isPending ? "Loading..." : "Login to your account"}
-          </Btn>
-        </div>
-        <div className="text-center">
-          Don't have an account? <Link to="/signup">Sign Up</Link>
-        </div>
-      </div>
-    </div>
+    <FormWrapper title="Login">
+      <Input
+        type="email"
+        handler={setEmail}
+        placeholder="Email address"
+        error={""}
+      />
+      <Input
+        type="password"
+        handler={setPassword}
+        placeholder="Password"
+        error={""}
+      />
+      <Box sx={{ padding: "24px 0" }}>
+        <Btn
+          variant="contained"
+          color="error"
+          fullWidth
+          onClick={() => mutate({ email, password })}
+          disabled={false}
+        >
+          {isPending ? "Loading..." : "Login to your account"}
+        </Btn>
+      </Box>
+      <Box textAlign="center">
+        Don't have an account? <Link to="/signup">Sign Up</Link>
+      </Box>
+    </FormWrapper>
   );
 }
 

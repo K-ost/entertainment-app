@@ -19,6 +19,8 @@ const BookmarkButton = styled(Button)<ButtonProps & { added?: string }>(
     width: "32px",
     minWidth: 0,
     padding: 0,
+    position: "relative",
+    zIndex: 3,
     "&:hover": {
       backgroundColor: "#fff",
       backgroundImage: `url(${added ? iconHoverActive : iconHover})`,

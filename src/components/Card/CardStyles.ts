@@ -1,5 +1,4 @@
 import { Box, BoxProps, styled } from "@mui/material";
-import { PlayOverlay } from "../../ui/Play";
 
 // Styles
 export const ItemBookMark = styled(Box)<BoxProps>(({ theme }) => ({
@@ -29,9 +28,29 @@ export const ImgBox = styled(Box)<BoxProps & { slide?: string }>(
         height: slide ? "140px" : "110px",
       },
     },
-    "&:hover PlayOverlay": {
+    "&::after": {
+      alignItems: "center",
+      backgroundColor: "rgba(0, 0, 0, 0.5)",
+      borderRadius: "8px",
+      content: '""',
+      display: "flex",
+      justifyContent: "center",
+      position: "absolute",
+      top: 0,
+      bottom: 0,
+      right: 0,
+      left: 0,
+      transition: "all 200ms ease-in-out",
+      opacity: 0,
+      visibility: "hidden",
+      zIndex: 2,
+    },
+    "&:hover::after": {
       opacity: 1,
       visibility: "visible",
+    },
+    "&:hover .playBtn": {
+      display: "block",
     },
   })
 );

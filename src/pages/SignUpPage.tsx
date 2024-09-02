@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.svg";
 import Input from "../ui/Input";
 import Btn from "../ui/Btn";
 import { useState } from "react";
 import useMutateData from "../hooks/useMutateData";
 import { User } from "../types";
-import { Typography } from "@mui/material";
+import FormWrapper from "../components/FormWrapper";
+import { Box } from "@mui/material";
 
 function SignUpPage() {
   const [email, setEmail] = useState<string>("");
@@ -30,36 +30,24 @@ function SignUpPage() {
   console.log(data);
 
   return (
-    <div>
-      <div className="formbox-logo">
-        <Link to="/">
-          <img src={logo} alt="" />
-        </Link>
-      </div>
-      <div className="formbox">
-        <Typography variant="h1">Sign Up</Typography>
-        <Input type="email" handler={setEmail} placeholder="Email address" />
-        <Input type="password" handler={setPassword} placeholder="Password" />
-        <Input
-          type="password"
-          handler={() => {}}
-          placeholder="Repeat password"
-        />
-        <div className="formbox-btn">
-          <Btn
-            variant="contained"
-            color="error"
-            fullWidth
-            onClick={registerHandler}
-          >
-            {isPending ? "Loading..." : "Create an account"}
-          </Btn>
-        </div>
-        <div className="text-center">
-          Already have an account? <Link to="/login">Login</Link>
-        </div>
-      </div>
-    </div>
+    <FormWrapper title="Sign Up">
+      <Input type="email" handler={setEmail} placeholder="Email address" />
+      <Input type="password" handler={setPassword} placeholder="Password" />
+      <Input type="password" handler={() => {}} placeholder="Repeat password" />
+      <Box sx={{ padding: "24px 0" }}>
+        <Btn
+          variant="contained"
+          color="error"
+          fullWidth
+          onClick={registerHandler}
+        >
+          {isPending ? "Loading..." : "Create an account"}
+        </Btn>
+      </Box>
+      <Box textAlign="center">
+        Already have an account? <Link to="/login">Login</Link>
+      </Box>
+    </FormWrapper>
   );
 }
 

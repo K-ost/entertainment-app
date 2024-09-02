@@ -1,11 +1,13 @@
 export type VideoViewType = "card" | "trend";
 
+export type VideoCategory = "Movie" | "TV Series";
+
 export type Video = {
   id: string;
   title: string;
   thumbnail: string;
   year: number;
-  category: string;
+  category: VideoCategory;
   rating: string;
   isTrending: boolean;
 };

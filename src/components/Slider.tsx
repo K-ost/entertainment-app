@@ -1,8 +1,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Box, BoxProps, styled, useTheme } from "@mui/material";
+import useMediaTools from "../hooks/useMediaTools";
 import "swiper/css";
 import Card from "./Card/Card";
 import { Video } from "../types";
-import { Box, BoxProps, styled, useMediaQuery, useTheme } from "@mui/material";
 
 type SliderProps<T> = {
   list: T[];
@@ -16,17 +17,17 @@ const SliderContainer = styled(Box)<BoxProps>(({ theme }) => ({
 const Slider = <T extends Video>(props: SliderProps<T>): JSX.Element => {
   const { list } = props;
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const { isMobile } = useMediaTools();
 
   return (
     <SliderContainer>
       <Swiper
-        spaceBetween={16}
+        spaceBetween={theme.spacing(2)}
         slidesPerView="auto"
         style={{ paddingRight: theme.spacing(4) }}
         breakpoints={{
-          750: { spaceBetween: 30 },
-          1020: { spaceBetween: 40 },
+          750: { spaceBetween: theme.spacing(4) },
+          1020: { spaceBetween: theme.spacing(5) },
         }}
       >
         {list.map((el) => (

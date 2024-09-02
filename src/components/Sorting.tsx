@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { Box, Typography, useTheme } from "@mui/material";
 import SelectBox, { SelectBoxItemType } from "../ui/SelectBox";
 
 type SortingProps = {
@@ -14,23 +14,17 @@ const sortList: SelectBoxItemType[] = [
   { name: "Old ones first", value: "year-asc" },
 ];
 
-// Styles
-const SortBox = styled.div`
-  align-items: center;
-  display: flex;
-`;
-const SortTitle = styled.div`
-  font-size: var(--fs);
-  margin: 0 16px 0 0;
-`;
-
 const Sorting = (props: SortingProps): JSX.Element => {
   const { setSort, value } = props;
+  const theme = useTheme();
+
   return (
-    <SortBox>
-      <SortTitle>Sort by</SortTitle>
+    <Box sx={{ alignItems: "center", display: "flex" }}>
+      <Typography variant="body1" sx={{ marginRight: theme.spacing(2) }}>
+        Sort by
+      </Typography>
       <SelectBox handler={setSort} list={sortList} value={value} />
-    </SortBox>
+    </Box>
   );
 };
 

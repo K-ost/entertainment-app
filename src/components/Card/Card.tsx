@@ -12,6 +12,7 @@ import {
 } from "../../utils/utils";
 import Play from "../../ui/Play";
 import { ImgBox, ItemBookMark, Meta, MetaItem, MetaTop } from "./CardStyles";
+import CardCategory from "./CardCategory";
 
 type CardProps = {
   el: Video;
@@ -55,13 +56,7 @@ const Card = (props: CardProps): JSX.Element => {
       <Meta slide={isSlide}>
         <MetaTop slide={isSlide}>
           <MetaItem>{el.year}</MetaItem>
-          <MetaItem
-            className={`metaCategory ${
-              el.category === "Movie" ? "movie" : "tv"
-            }`}
-          >
-            {el.category}
-          </MetaItem>
+          <CardCategory category={el.category} />
           <MetaItem>{el.rating}</MetaItem>
         </MetaTop>
         <Typography variant="h4" sx={{ margin: 0 }}>

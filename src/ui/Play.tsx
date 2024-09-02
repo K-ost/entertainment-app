@@ -1,38 +1,29 @@
-import { Box, BoxProps, styled } from "@mui/material";
+import { BoxProps, Button, styled } from "@mui/material";
 import play from "../assets/play.svg";
 
 // Styled
-export const PlayOverlay = styled(Box)<BoxProps>(() => ({
-  background: "rgba(0, 0, 0, 0.5)",
-  borderRadius: "8px",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  position: "absolute",
-  top: 0,
-  bottom: 0,
-  right: 0,
-  left: 0,
-  transition: "all 200ms ease-in-out",
-  opacity: 0,
-  visibility: "hidden",
-}));
-
-export const PlayButton = styled(Box)<BoxProps>(() => ({
-  background: `rgba(255, 255, 255, 0.25) url(${play}) 9px center no-repeat`,
+export const PlayButton = styled(Button)<BoxProps>(() => ({
+  backgroundColor: "rgba(255, 255, 255, 0.25)",
+  backgroundImage: `url(${play})`,
+  backgroundPosition: "9px center",
+  backgroundRepeat: "no-repeat",
   borderRadius: "48px",
-  display: "inline-block",
+  content: '"Play"',
+  display: "none",
   fontSize: "var(--XS)",
+  fontWeight: 300,
   lineHeight: "20px",
   padding: "14px 24px 14px 58px",
+  textTransform: "none",
+  position: "absolute",
+  left: "50%",
+  top: "50%",
+  transform: "translate(-50%,-50%)",
+  zIndex: 5,
 }));
 
 const Play = (): JSX.Element => {
-  return (
-    <PlayOverlay>
-      <PlayButton>Play</PlayButton>
-    </PlayOverlay>
-  );
+  return <PlayButton className="playBtn">Play</PlayButton>;
 };
 
 export default Play;
