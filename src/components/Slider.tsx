@@ -27,7 +27,6 @@ const Slider = <T extends Video>(props: SliderProps<T>): JSX.Element => {
         style={{ paddingRight: theme.spacing(4) }}
         breakpoints={{
           750: { spaceBetween: theme.spacing(4) },
-          1020: { spaceBetween: theme.spacing(5) },
         }}
       >
         {list.map((el) => (
