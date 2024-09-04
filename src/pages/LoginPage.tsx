@@ -63,6 +63,7 @@ function LoginPage() {
           error={errors.email ? true : false}
           helperText={errors.email?.message}
         />
+
         <Input
           type="password"
           placeholder="Password"
@@ -78,6 +79,7 @@ function LoginPage() {
           error={errors.password ? true : false}
           helperText={errors.password?.message}
         />
+
         <Box sx={{ padding: "24px 0" }}>
           <Btn
             type="submit"

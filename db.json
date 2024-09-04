@@ -297,11 +297,19 @@
       "email": "admin@test.com",
       "password": "$2a$10$FyUsL09OF5lWqsvKJlUGEuuOm2.DJ8Hgk/UxzQFj4veiKOQgcw6h2",
       "avatar": "",
-      "role": "user",
+      "role": "admin",
       "bookmarks": [
         "1"
       ],
       "id": 1
+    },
+    {
+      "email": "user@test.com",
+      "password": "$2a$10$bCaiuM0KhvM0f211Uko.7ez8NOnjmzamdls2Z6kTfYXCuO8805dIK",
+      "avatar": "",
+      "bookmarks": [],
+      "role": "user",
+      "id": 2
     }
   ]
 }
