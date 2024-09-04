@@ -14,7 +14,8 @@ dist-ssr
 
 starter-code
 .env
-data.json
+db.json
+dbCopy.json
 assets/thumbnails
 
 # Editor directories and files
