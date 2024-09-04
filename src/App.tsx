@@ -10,8 +10,8 @@ import ProfilePage from "./pages/ProfilePage";
 import SearchPage from "./pages/SearchPage";
 import { useAuthStore } from "./store/useAuthStore";
 import PublicRoutes from "./components/PublicRoutes";
-import Toast from "./ui/Toast";
 import { useAppStore } from "./store/useAppStore";
+import Notification from "./ui/Notification";
 
 function App() {
   const { auth } = useAuthStore();
@@ -34,7 +34,7 @@ function App() {
           <Route path="/profile" element={<ProfilePage />} />
         </Route>
       </Routes>
-      <Toast message={message} open={message.length ? true : false} />
+      <Notification message={message} open={message.length ? true : false} />
     </div>
   );
 }

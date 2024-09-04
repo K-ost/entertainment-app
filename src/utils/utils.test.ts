@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  bookmarksNotification,
   checkBookmark,
   getSortQuery,
   getStyleCondition,
@@ -56,5 +57,16 @@ describe("Utils", () => {
   it("getStyleCondition - false / undefined", () => {
     const result = getStyleCondition(false);
     expect(result).toStrictEqual(undefined);
+  });
+
+  it("Adding to bookmarks notification message", () => {
+    const result = bookmarksNotification("Movie", false);
+    expect(result.includes("added")).toBe(true);
+  });
+
+  it("Removing from bookmarks notification message", () => {
+    const result = bookmarksNotification("Movie", true);
+    expect(result.includes("added")).toBe(false);
+    expect(result.includes("removed")).toBe(true);
   });
 });

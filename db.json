@@ -307,7 +307,9 @@
       "email": "user@test.com",
       "password": "$2a$10$bCaiuM0KhvM0f211Uko.7ez8NOnjmzamdls2Z6kTfYXCuO8805dIK",
       "avatar": "",
-      "bookmarks": [],
+      "bookmarks": [
+        "1"
+      ],
       "role": "user",
       "id": 2
     }

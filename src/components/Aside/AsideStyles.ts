@@ -3,7 +3,7 @@ import user from "../../assets/user.svg";
 
 // Styles
 export const Sidebar = styled(Box)<BoxProps>(({ theme }) => ({
-  background: theme.palette.background.paper,
+  background: theme.palette.primary.main,
   borderRadius: 20,
   display: "flex",
   flexDirection: "column",

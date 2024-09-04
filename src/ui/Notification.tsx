@@ -6,11 +6,13 @@ import {
 } from "@mui/material";
 import { useAppStore } from "../store/useAppStore";
 
-type ToastProps = {
+type NotificationProps = {
   message: string;
 };
 
-const Toast = (props: SnackbarProps & ToastProps): JSX.Element => {
+const Notification = (
+  props: SnackbarProps & NotificationProps
+): JSX.Element => {
   const { message } = props;
   const { setMessage } = useAppStore();
   const theme = useTheme();
@@ -24,7 +26,7 @@ const Toast = (props: SnackbarProps & ToastProps): JSX.Element => {
     >
       <SnackbarContent
         style={{
-          background: theme.palette.info.main,
+          background: theme.palette.primary.main,
           color: theme.palette.common.white,
         }}
         message={message}
@@ -33,4 +35,4 @@ const Toast = (props: SnackbarProps & ToastProps): JSX.Element => {
   );
 };
 
-export default Toast;
+export default Notification;

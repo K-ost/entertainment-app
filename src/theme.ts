@@ -13,11 +13,16 @@ export const customTheme = createTheme({
   palette: {
     background: {
       default: "#10141e",
-      paper: "#161d2f",
+      paper: "#5a698f",
     },
     primary: {
-      main: "#ffffff",
-      contrastText: "#000000",
+      main: "#161d2f",
+    },
+    secondary: {
+      main: "#e1e1e1",
+    },
+    warning: {
+      main: "#ffc107",
     },
     error: {
       main: "#fc4747",

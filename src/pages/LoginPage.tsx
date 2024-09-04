@@ -34,16 +34,19 @@ function LoginPage() {
     mutate({ email: data.email, password: data.password });
   };
 
+  const message =
+    serverData && serverData.user
+      ? "You've succesfully been logged"
+      : serverData;
+
   useEffect(() => {
     if (serverData) {
       if (serverData.user) {
         setLogin(serverData);
       }
-      setMessage(
-        serverData.user ? "You've succesfully been logged" : serverData
-      );
+      setMessage(message);
     }
-  }, [serverData]);
+  }, [serverData, message]);
 
   return (
     <FormWrapper title="Login">

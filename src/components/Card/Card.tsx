@@ -9,10 +9,13 @@ import {
   checkBookmark,
   updateBookmarks,
   getStyleCondition,
+  bookmarksNotification,
 } from "../../utils/utils";
 import Play from "../../ui/Play";
 import { ImgBox, ItemBookMark, Meta, MetaItem, MetaTop } from "./CardStyles";
 import CardCategory from "./CardCategory";
+import { useAppStore } from "../../store/useAppStore";
+import { useEffect } from "react";
 
 type CardProps = {
   el: Video;
@@ -22,6 +25,7 @@ type CardProps = {
 const Card = (props: CardProps): JSX.Element => {
   const { el, type = "card" } = props;
   const { auth, updateAuth } = useAuthStore();
+  const { setMessage } = useAppStore();
   const navigate = useNavigate();
   const isBookmarked = auth ? checkBookmark(el.id, auth.user.bookmarks) : false;
   const isSlide = getStyleCondition(type === "trend");
@@ -39,6 +43,7 @@ const Card = (props: CardProps): JSX.Element => {
     const bookmarks = updateBookmarks(isBookmarked, auth.user.bookmarks, el.id);
     mutate({ bookmarks });
     updateAuth(bookmarks);
+    setMessage(bookmarksNotification(el.title, isBookmarked));
   };
 
   return (

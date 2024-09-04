@@ -9,7 +9,7 @@ type FormWrapperProps = {
 };
 
 const Wrapper = styled(Box)<BoxProps>(({ theme }) => ({
-  backgroundColor: "var(--color-semi-dark)",
+  backgroundColor: theme.palette.primary.main,
   borderRadius: "20px",
   padding: theme.spacing(4),
   margin: "0 auto",

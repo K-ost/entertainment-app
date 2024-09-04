@@ -33,3 +33,12 @@ export const idsToString = (arr: string[]): string => {
 export const getStyleCondition = (val: boolean): string | undefined => {
   return val ? String(val) : undefined;
 };
+
+export const bookmarksNotification = (
+  title: string,
+  isBookmarked: boolean
+): string => {
+  return !isBookmarked
+    ? `The film of "${title}" has been added to your bookmarks`
+    : `The film of "${title}" has just been removed from your bookmarks`;
+};
