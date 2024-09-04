@@ -15,6 +15,7 @@ dist-ssr
 starter-code
 .env
 data.json
+assets/thumbnails
 
 # Editor directories and files
 .vscode/*
