@@ -16,6 +16,7 @@ export const Sidebar = styled(Box)<BoxProps>(({ theme }) => ({
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "space-between",
+    margin: theme.spacing(3),
     minWidth: 0,
     marginBottom: 0,
     maxWidth: "none",

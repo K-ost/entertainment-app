@@ -12,6 +12,12 @@ type SliderProps<T> = {
 const SliderContainer = styled(Box)<BoxProps>(({ theme }) => ({
   marginRight: `-${theme.spacing(4)}`,
   marginBottom: theme.spacing(5),
+  [theme.breakpoints.down("lg")]: {
+    marginRight: `-${theme.spacing(3)}`,
+  },
+  [theme.breakpoints.down("md")]: {
+    marginRight: `-${theme.spacing(2)}`,
+  },
 }));
 
 const Slider = <T extends Video>(props: SliderProps<T>): JSX.Element => {

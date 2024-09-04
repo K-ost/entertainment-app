@@ -21,16 +21,27 @@ const AppContainer = styled(Box)<BoxProps>(({ theme }) => ({
   flexGrow: 1,
   overflow: "hidden",
   paddingTop: theme.spacing(4),
+  [theme.breakpoints.down("lg")]: {
+    paddingTop: theme.spacing(3),
+  },
+  [theme.breakpoints.down("md")]: {
+    paddingTop: theme.spacing(2),
+  },
 }));
 
 const AppContent = styled(Box)<BoxProps>(({ theme }) => ({
   flex: 1,
   overflow: "auto",
+  paddingTop: theme.spacing(2),
   paddingBottom: theme.spacing(4),
   paddingRight: theme.spacing(4),
   [theme.breakpoints.down("lg")]: {
-    padding: theme.spacing(4),
-    paddingTop: 0,
+    paddingLeft: theme.spacing(3),
+    paddingRight: theme.spacing(3),
+    paddingBottom: theme.spacing(3),
+  },
+  [theme.breakpoints.down("md")]: {
+    padding: theme.spacing(2),
   },
 }));
 

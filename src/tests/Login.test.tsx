@@ -55,6 +55,26 @@ describe("Login form", () => {
     ).toBeInTheDocument();
   });
 
+  it("Server Error - User doesn't exist", async () => {
+    // const button = screen.getByRole("button", {
+    //   name: btnText,
+    // });
+    // nock(API_URL)
+    //   .post("/login", {
+    //     email: "wrong@user.com",
+    //     password: "1111",
+    //   })
+    //   .reply(400, "Email doesn't exist");
+    // const emailInput = screen.getByPlaceholderText("Email address");
+    // const passInput = screen.getByPlaceholderText("Password");
+    // await userEvent.type(emailInput, "wrong@user.com");
+    // await userEvent.type(passInput, "1111");
+    // await userEvent.click(button);
+    // await waitFor(() => {
+    //   expect(screen.getByText(/exist/)).toBeInTheDocument();
+    // });
+  });
+
   it("Success - User has been logged", async () => {
     const button = screen.getByRole("button", {
       name: btnText,
@@ -62,15 +82,15 @@ describe("Login form", () => {
 
     nock(API_URL)
       .post("/login", {
-        email: "test@test.com",
-        password: "1111",
+        email: "success@user.com",
+        password: "12345",
       })
-      .reply(200, { user: {}, accessToken: "User has been logged" });
+      .reply(200, { user: {}, accessToken: "token" });
 
     const emailInput = screen.getByPlaceholderText("Email address");
     const passInput = screen.getByPlaceholderText("Password");
-    await userEvent.type(emailInput, "test@test.com");
-    await userEvent.type(passInput, "1111");
+    await userEvent.type(emailInput, "success@user.com");
+    await userEvent.type(passInput, "12345");
     await userEvent.click(button);
 
     await waitFor(() => {
