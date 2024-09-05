@@ -5,6 +5,7 @@ import { useAuthStore } from "../store/useAuthStore";
 import { useNavigate } from "react-router-dom";
 import { useNotificationStore } from "../store/useNotificationStore";
 import { Typography } from "@mui/material";
+import UsersList from "../components/Users/UsersList";
 
 function ProfilePage() {
   const { auth, setLogout } = useAuthStore();
@@ -25,9 +26,9 @@ function ProfilePage() {
         </Btn>
       </PageTitle>
 
-      <Typography variant="body1">Hi, {auth?.user.email}</Typography>
+      <Typography variant="h4">Hi, {auth?.user.email}</Typography>
 
-      {auth?.user.role === "admin" && <div>ADMIN ONLY</div>}
+      {auth?.user.role === "admin" && <UsersList />}
     </Layout>
   );
 }

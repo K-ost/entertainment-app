@@ -5,6 +5,8 @@ import { useAuthStore } from "../../store/useAuthStore";
 
 const NavMenu = (): JSX.Element => {
   const { auth } = useAuthStore();
+  const bookmarksCount =
+    auth && auth.user.bookmarks && auth.user.bookmarks.length;
 
   return (
     <NavContainer>
@@ -61,7 +63,7 @@ const NavMenu = (): JSX.Element => {
           </NavLink>
         </li>
         <li>
-          <Badge badgeContent={auth?.user.bookmarks.length} color="error">
+          <Badge badgeContent={bookmarksCount} color="error">
             <NavLink to="/bookmarks">
               <svg
                 width="17"

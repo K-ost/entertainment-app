@@ -37,6 +37,9 @@ export const customTheme = createTheme({
     body1: {
       fontSize: 15,
     },
+    body2: {
+      fontSize: 18,
+    },
     h1: {
       fontSize: 32,
       fontWeight: 300,
@@ -63,4 +66,15 @@ export const customTheme = createTheme({
     },
   },
   spacing: 8,
+  components: {
+    MuiTooltip: {
+      styleOverrides: {
+        tooltip: {
+          backgroundColor: "#5a698f",
+          fontSize: 15,
+          fontWeight: 300,
+        },
+      },
+    },
+  },
 });
