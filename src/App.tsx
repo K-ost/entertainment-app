@@ -10,12 +10,12 @@ import ProfilePage from "./pages/ProfilePage";
 import SearchPage from "./pages/SearchPage";
 import { useAuthStore } from "./store/useAuthStore";
 import PublicRoutes from "./components/PublicRoutes";
-import { useAppStore } from "./store/useAppStore";
+import { useNotificationStore } from "./store/useNotificationStore";
 import Notification from "./ui/Notification";
 
 function App() {
   const { auth } = useAuthStore();
-  const { message } = useAppStore();
+  const { isVisible, message } = useNotificationStore();
   const isAuth = !!auth;
 
   return (
@@ -34,7 +34,7 @@ function App() {
           <Route path="/profile" element={<ProfilePage />} />
         </Route>
       </Routes>
-      <Notification message={message} open={message.length ? true : false} />
+      <Notification message={message} open={isVisible} />
     </div>
   );
 }

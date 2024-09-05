@@ -55,6 +55,29 @@ describe("Login form", () => {
     ).toBeInTheDocument();
   });
 
+  it("Error - Incorrect password", async () => {
+    const button = screen.getByRole("button", {
+      name: btnText,
+    });
+
+    nock(API_URL)
+      .post("/login", {
+        email: "test@user.com",
+        password: "1111",
+      })
+      .reply(401, { message: "Incorrect password" });
+
+    const emailInput = screen.getByPlaceholderText("Email address");
+    const passInput = screen.getByPlaceholderText("Password");
+    await userEvent.type(emailInput, "test@user.com");
+    await userEvent.type(passInput, "1111");
+    await userEvent.click(button);
+
+    await waitFor(() => {
+      expect(screen.getByText("Incorrect password")).toBeInTheDocument();
+    });
+  });
+
   it("Success - User has been logged", async () => {
     const button = screen.getByRole("button", {
       name: btnText,
@@ -62,14 +85,14 @@ describe("Login form", () => {
 
     nock(API_URL)
       .post("/login", {
-        email: "success@user.com",
+        email: "test@user.com",
         password: "12345",
       })
       .reply(200, { user: {}, accessToken: "token" });
 
     const emailInput = screen.getByPlaceholderText("Email address");
     const passInput = screen.getByPlaceholderText("Password");
-    await userEvent.type(emailInput, "success@user.com");
+    await userEvent.type(emailInput, "test@user.com");
     await userEvent.type(passInput, "12345");
     await userEvent.click(button);
 

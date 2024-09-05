@@ -47,7 +47,9 @@ export const AsideUser = styled(Box)<BoxProps>(({ theme }) => ({
   "--size": "40px",
   "& a": {
     background: `url(${user}) center / 20px no-repeat`,
-    border: "1px solid var(--color-white)",
+    borderWith: 1,
+    borderStyle: "solid",
+    borderColor: theme.palette.common.white,
     borderRadius: "50%",
     display: "block",
     height: "calc(var(--size) + 2px)",
@@ -98,10 +100,10 @@ export const NavMenu = styled(Box)<BoxProps>(({ theme }) => ({
         },
       },
       "& a path": {
-        fill: "var(--color-greyish)",
+        fill: theme.palette.background.paper,
       },
       "& a.active path": {
-        fill: "var(--color-white)",
+        fill: theme.palette.common.white,
       },
     },
   },

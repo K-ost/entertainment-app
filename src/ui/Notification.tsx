@@ -4,7 +4,7 @@ import {
   SnackbarProps,
   useTheme,
 } from "@mui/material";
-import { useAppStore } from "../store/useAppStore";
+import { useNotificationStore } from "../store/useNotificationStore";
 
 type NotificationProps = {
   message: string;
@@ -14,7 +14,7 @@ const Notification = (
   props: SnackbarProps & NotificationProps
 ): JSX.Element => {
   const { message } = props;
-  const { setMessage } = useAppStore();
+  const { setMessage } = useNotificationStore();
   const theme = useTheme();
 
   return (
@@ -26,7 +26,7 @@ const Notification = (
     >
       <SnackbarContent
         style={{
-          background: theme.palette.primary.main,
+          background: theme.palette.background.paper,
           color: theme.palette.common.white,
         }}
         message={message}

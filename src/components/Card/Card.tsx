@@ -14,8 +14,7 @@ import {
 import Play from "../../ui/Play";
 import { ImgBox, ItemBookMark, Meta, MetaItem, MetaTop } from "./CardStyles";
 import CardCategory from "./CardCategory";
-import { useAppStore } from "../../store/useAppStore";
-import { useEffect } from "react";
+import { useNotificationStore } from "../../store/useNotificationStore";
 
 type CardProps = {
   el: Video;
@@ -25,7 +24,7 @@ type CardProps = {
 const Card = (props: CardProps): JSX.Element => {
   const { el, type = "card" } = props;
   const { auth, updateAuth } = useAuthStore();
-  const { setMessage } = useAppStore();
+  const { setMessage } = useNotificationStore();
   const navigate = useNavigate();
   const isBookmarked = auth ? checkBookmark(el.id, auth.user.bookmarks) : false;
   const isSlide = getStyleCondition(type === "trend");

@@ -3,11 +3,12 @@ import Layout from "../components/Layout";
 import Btn from "../ui/Btn";
 import { useAuthStore } from "../store/useAuthStore";
 import { useNavigate } from "react-router-dom";
-import { useAppStore } from "../store/useAppStore";
+import { useNotificationStore } from "../store/useNotificationStore";
+import { Typography } from "@mui/material";
 
 function ProfilePage() {
   const { auth, setLogout } = useAuthStore();
-  const { setMessage } = useAppStore();
+  const { setMessage } = useNotificationStore();
   const navigate = useNavigate();
 
   const logoutHandler = () => {
@@ -24,7 +25,9 @@ function ProfilePage() {
         </Btn>
       </PageTitle>
 
-      <div>Hi, {auth?.user.email}</div>
+      <Typography variant="body1">Hi, {auth?.user.email}</Typography>
+
+      {auth?.user.role === "admin" && <div>ADMIN ONLY</div>}
     </Layout>
   );
 }

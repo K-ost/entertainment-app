@@ -5,6 +5,7 @@ import useQueryData from "../hooks/useQueryData";
 import { useAuthStore } from "../store/useAuthStore";
 import { Video } from "../types";
 import { idsToString } from "../utils/utils";
+import { useQueryClient } from "@tanstack/react-query";
 
 function Bookmarks() {
   const { auth } = useAuthStore();
@@ -14,6 +15,11 @@ function Bookmarks() {
     key: ["bookmarks"],
     uri: `/videos?${ID_URI}`,
     enabled: ID_URI.length ? true : false,
+  });
+
+  const queryClient = useQueryClient();
+  queryClient.invalidateQueries({
+    queryKey: ["bookmarks"],
   });
 
   return (

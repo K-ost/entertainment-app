@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import useMutateData from "../hooks/useMutateData";
 import { Link } from "react-router-dom";
 import Btn from "../ui/Btn";
@@ -6,13 +7,12 @@ import { LoginData } from "../types";
 import { useAuthStore } from "../store/useAuthStore";
 import FormWrapper from "../components/FormWrapper";
 import { Box } from "@mui/material";
-import { useAppStore } from "../store/useAppStore";
 import { useForm } from "react-hook-form";
-import { useEffect } from "react";
+import { useNotificationStore } from "../store/useNotificationStore";
 
 function LoginPage() {
   const { setLogin } = useAuthStore();
-  const { setMessage } = useAppStore();
+  const { setMessage } = useNotificationStore();
 
   const {
     register,
@@ -24,7 +24,7 @@ function LoginPage() {
     data: serverData,
     isPending,
     mutate,
-  } = useMutateData<LoginData>({
+  } = useMutateData<LoginData | { message: string }>({
     key: ["login"],
     method: "POST",
     uri: "/login",
@@ -37,7 +37,7 @@ function LoginPage() {
   const message =
     serverData && serverData.user
       ? "You've succesfully been logged"
-      : serverData;
+      : serverData && serverData.message;
 
   useEffect(() => {
     if (serverData) {
@@ -46,7 +46,7 @@ function LoginPage() {
       }
       setMessage(message);
     }
-  }, [serverData, message]);
+  }, [serverData]);
 
   return (
     <FormWrapper title="Login">

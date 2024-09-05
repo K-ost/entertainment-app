@@ -22,6 +22,9 @@ export const mutateData = async <T>(
       body: JSON.stringify(body),
     });
     const data = await response.json();
+    if (response.status === 400) {
+      return { message: data };
+    }
     return data;
   } catch (e) {
     throw e;

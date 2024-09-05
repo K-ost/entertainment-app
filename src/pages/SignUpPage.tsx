@@ -7,11 +7,11 @@ import { Box } from "@mui/material";
 import Btn from "../ui/Btn";
 import Input from "../ui/Input";
 import { useEffect } from "react";
-import { useAppStore } from "../store/useAppStore";
 import { useAuthStore } from "../store/useAuthStore";
+import { useNotificationStore } from "../store/useNotificationStore";
 
 function SignUpPage() {
-  const { setMessage } = useAppStore();
+  const { setMessage } = useNotificationStore();
   const { setLogin } = useAuthStore();
 
   const {
@@ -45,7 +45,7 @@ function SignUpPage() {
     if (registerData) {
       const message = registerData.user
         ? "You've been registered succesfully"
-        : registerData;
+        : registerData.message;
       setMessage(message);
       if (registerData.user) {
         setLogin(registerData);
