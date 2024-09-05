@@ -72,7 +72,7 @@ export const AsideUser = styled(Box)<BoxProps>(({ theme }) => ({
   },
 }));
 
-export const NavMenu = styled(Box)<BoxProps>(({ theme }) => ({
+export const NavContainer = styled(Box)<BoxProps>(({ theme }) => ({
   marginBottom: "auto",
   [theme.breakpoints.down("lg")]: {
     marginBottom: 0,
