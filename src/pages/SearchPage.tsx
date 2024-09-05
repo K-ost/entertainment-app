@@ -4,15 +4,22 @@ import useQueryData from "../hooks/useQueryData";
 import { Video } from "../types";
 import CardList from "../components/Card/CardList";
 import { Typography } from "@mui/material";
+import { useEffect } from "react";
 
 function SearchPage() {
   const [searchParams, _] = useSearchParams();
   const searchQuery = searchParams.get("q");
 
-  const { data, isLoading, isError, isSuccess } = useQueryData<Video[]>({
+  const { data, isLoading, isError, isSuccess, refetch } = useQueryData<
+    Video[]
+  >({
     key: ["search"],
     uri: `/videos?q=${searchQuery}`,
   });
+
+  useEffect(() => {
+    refetch();
+  }, [searchQuery]);
 
   return (
     <Layout>
