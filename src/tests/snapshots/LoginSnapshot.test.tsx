@@ -1,7 +1,7 @@
 import { expect, it } from "vitest";
 import { render } from "@testing-library/react";
-import LoginPage from "../pages/LoginPage";
-import { Wrap } from "./testUtils";
+import { Wrap } from "../testUtils";
+import LoginPage from "../../pages/LoginPage";
 
 it("Snapshots - Login", () => {
   const pageRender = render(

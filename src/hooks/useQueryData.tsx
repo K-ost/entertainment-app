@@ -8,7 +8,7 @@ type UseQueryDataProps = {
 };
 
 const useQueryData = <T,>(props: UseQueryDataProps) => {
-  const { enabled, key, uri } = props;
+  const { enabled = true, key, uri } = props;
   return useQuery({
     queryKey: key,
     queryFn: () => getData<T>(uri),

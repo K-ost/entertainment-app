@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MemoryRouter } from "react-router-dom";
 
 const client = new QueryClient();
+
 export const Wrap = ({
   children,
 }: {
@@ -13,3 +14,7 @@ export const Wrap = ({
     </MemoryRouter>
   );
 };
+
+export const wrapperHook = ({ children }: { children: React.ReactNode }) => (
+  <QueryClientProvider client={client}>{children}</QueryClientProvider>
+);

@@ -1,23 +1,21 @@
+import { useState } from "react";
 import { Box, Typography } from "@mui/material";
-import useQueryData from "../../hooks/useQueryData";
 import { User } from "../../types";
 import UserCard from "./UserCard";
-import UserSkelets from "./UserSkelets";
 import CustomModal from "../../ui/CustomModal";
 import Btn from "../../ui/Btn";
 import useMutateData from "../../hooks/useMutateData";
-import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 
-const UsersList = (): JSX.Element => {
+type UsersListProps = {
+  users: User[];
+};
+
+const UsersList = (props: UsersListProps): JSX.Element => {
+  const { users } = props;
   const [removeUser, setRemoveUser] = useState<boolean>(false);
   const [removeUserId, setRemoveUserId] = useState<number>();
   const queryClient = useQueryClient();
-
-  const { data, isLoading, isSuccess } = useQueryData<User[]>({
-    key: ["users"],
-    uri: "/users",
-  });
 
   const { mutate } = useMutateData({
     key: ["users"],
@@ -36,20 +34,15 @@ const UsersList = (): JSX.Element => {
 
   return (
     <div>
-      <Typography variant="h3" sx={{ marginBottom: "10px" }}>
-        Users
-      </Typography>
-      {isSuccess &&
-        data.map((user) => (
-          <UserCard
-            key={user.id}
-            user={user}
-            remove={(num: number) => {
-              setRemoveUser(true), setRemoveUserId(num);
-            }}
-          />
-        ))}
-      {isLoading && <UserSkelets />}
+      {users.map((user) => (
+        <UserCard
+          key={user.id}
+          user={user}
+          remove={(num: number) => {
+            setRemoveUser(true), setRemoveUserId(num);
+          }}
+        />
+      ))}
 
       <CustomModal
         title="Remove user"
