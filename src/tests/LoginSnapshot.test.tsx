@@ -1,7 +1,7 @@
 import { expect, it } from "vitest";
 import { render } from "@testing-library/react";
-import { Wrap } from "./HomeSnapshot.test";
 import LoginPage from "../pages/LoginPage";
+import { Wrap } from "./testUtils";
 
 it("Snapshots - Login", () => {
   const pageRender = render(
@@ -50,7 +50,7 @@ it("Snapshots - Login", () => {
                     <input
                       aria-invalid="false"
                       class="MuiInputBase-input MuiInput-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
-                      id=":r1:"
+                      id=":r0:"
                       name="email"
                       placeholder="Email address"
                       type="email"
@@ -67,7 +67,7 @@ it("Snapshots - Login", () => {
                     <input
                       aria-invalid="false"
                       class="MuiInputBase-input MuiInput-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
-                      id=":r2:"
+                      id=":r1:"
                       name="password"
                       placeholder="Password"
                       type="password"
@@ -141,7 +141,7 @@ it("Snapshots - Login", () => {
                   <input
                     aria-invalid="false"
                     class="MuiInputBase-input MuiInput-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
-                    id=":r1:"
+                    id=":r0:"
                     name="email"
                     placeholder="Email address"
                     type="email"
@@ -158,7 +158,7 @@ it("Snapshots - Login", () => {
                   <input
                     aria-invalid="false"
                     class="MuiInputBase-input MuiInput-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
-                    id=":r2:"
+                    id=":r1:"
                     name="password"
                     placeholder="Password"
                     type="password"

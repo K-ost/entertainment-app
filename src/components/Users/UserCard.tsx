@@ -22,7 +22,7 @@ const UserCard = (props: UserCardProps): JSX.Element => {
   const { user, remove } = props;
 
   return (
-    <Card>
+    <Card data-testid={`usercard-${user.id}`}>
       <Box>
         <Typography variant="body2">{user.email}</Typography>
       </Box>

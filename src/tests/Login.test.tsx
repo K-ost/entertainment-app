@@ -1,24 +1,19 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { MemoryRouter } from "react-router-dom";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import nock from "nock";
 import App from "../App";
 import { API_URL } from "../constants";
-
-const client = new QueryClient();
+import { Wrap } from "./testUtils";
 
 const btnText = "Login to your account";
 
 describe("Login form", () => {
   beforeEach(async () => {
     render(
-      <MemoryRouter>
-        <QueryClientProvider client={client}>
-          <App />
-        </QueryClientProvider>
-      </MemoryRouter>
+      <Wrap>
+        <App />
+      </Wrap>
     );
     await userEvent.click(screen.getByTestId("profileLink"));
   });

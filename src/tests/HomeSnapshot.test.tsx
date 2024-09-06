@@ -1,21 +1,7 @@
 import { expect, it } from "vitest";
 import { render } from "@testing-library/react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Wrap } from "./testUtils";
 import Home from "../pages/Home";
-import { MemoryRouter } from "react-router-dom";
-
-const client = new QueryClient();
-export const Wrap = ({
-  children,
-}: {
-  children: React.ReactNode;
-}): JSX.Element => {
-  return (
-    <MemoryRouter>
-      <QueryClientProvider client={client}>{children}</QueryClientProvider>
-    </MemoryRouter>
-  );
-};
 
 it("Snapshots - Home page", () => {
   const pageRender = render(
