@@ -46,7 +46,7 @@ const Card = (props: CardProps): JSX.Element => {
   };
 
   return (
-    <Box sx={{ position: "relative" }}>
+    <Box sx={{ position: "relative" }} data-testid={`videocard-${el.id}`}>
       <ImgBox slide={isSlide}>
         <img src={getImageLink(el.thumbnail)} alt="" />
         <Play />
