@@ -21,6 +21,7 @@ export type User = {
   email: string;
   role: UserRole;
   password: string;
+  name?: string;
 };
 
 export type LoginData = {

@@ -1,4 +1,4 @@
-import { Box, BoxProps, styled, Typography } from "@mui/material";
+import { Box, BoxProps, styled, Typography, useTheme } from "@mui/material";
 import { User } from "../../types";
 import Btn from "../../ui/Btn";
 
@@ -24,7 +24,12 @@ const UserCard = (props: UserCardProps): JSX.Element => {
   return (
     <Card data-testid={`usercard-${user.id}`}>
       <Box>
-        <Typography variant="body2">{user.email}</Typography>
+        {user.name && (
+          <Typography variant="body2" fontWeight={300}>
+            {user.name}
+          </Typography>
+        )}
+        <Typography variant="body1">{user.email}</Typography>
       </Box>
       {user.role !== "admin" && (
         <Btn
