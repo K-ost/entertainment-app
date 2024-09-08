@@ -20,7 +20,7 @@ export type User = {
   bookmarks: string[];
   email: string;
   role: UserRole;
-  password: string;
+  password?: string;
   name?: string;
 };
 

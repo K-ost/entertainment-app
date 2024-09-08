@@ -18,13 +18,16 @@ function ProfilePage() {
   const navigate = useNavigate();
   const { isMobile } = useMediaTools();
 
-  const { data, isLoading, isSuccess } = useQueryData<User[]>({
+  const currentUser = useQueryData<User>({
+    key: ["user"],
+    uri: `/users/${auth?.user.id}`,
+  });
+
+  const allUsers = useQueryData<User[]>({
     key: ["users"],
     uri: "/users",
     enabled: auth?.user.role === "admin",
   });
-
-  const currentUser = data?.find((user) => user.id === auth?.user.id);
 
   const logoutHandler = () => {
     setLogout();
@@ -40,18 +43,20 @@ function ProfilePage() {
         </Btn>
       </PageTitle>
 
-      <Typography variant="h4">Hi, {auth?.user.email}</Typography>
+      <Typography variant="h4">
+        Hi, {currentUser.data?.name} ({currentUser.data?.email})
+      </Typography>
 
       <Grid container spacing={isMobile ? 2 : 4}>
         <Grid item xs={12} sm={12} lg={6}>
-          {currentUser && <UserForm user={currentUser} />}
+          {currentUser.isSuccess && <UserForm user={currentUser.data} />}
         </Grid>
         <Grid item xs={12} sm={12} lg={6}>
           {auth?.user.role === "admin" && (
             <>
               <Typography variant="h3">Users</Typography>
-              {isSuccess && <UsersList users={data} />}
-              {isLoading && <UserSkelets />}
+              {allUsers.isSuccess && <UsersList users={allUsers.data} />}
+              {allUsers.isLoading && <UserSkelets />}
             </>
           )}
         </Grid>

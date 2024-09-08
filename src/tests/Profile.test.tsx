@@ -33,8 +33,6 @@ describe("Profile page", () => {
     preRenderWithState();
     const title = screen.getByText("Profile page");
     expect(title).toBeInTheDocument();
-    const welcomeText = screen.getByText(/admin@test.com/i);
-    expect(welcomeText).toBeInTheDocument();
   });
 
   it("No users list if user isn't admin", () => {

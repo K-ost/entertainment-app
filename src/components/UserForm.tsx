@@ -1,10 +1,9 @@
+import { useForm } from "react-hook-form";
 import { Box, Typography } from "@mui/material";
 import Btn from "../ui/Btn";
 import { User } from "../types";
-import { useForm } from "react-hook-form";
 import Input from "../ui/Input";
 import useMutateData from "../hooks/useMutateData";
-import { useQueryClient } from "@tanstack/react-query";
 
 type UserFormProps = {
   user: User;
@@ -14,7 +13,6 @@ type FormUser = Omit<User, "id" | "bookmarks" | "role" | "avatar">;
 
 const UserForm = (props: UserFormProps): JSX.Element => {
   const { user } = props;
-  const client = useQueryClient();
 
   const {
     register,
@@ -29,16 +27,15 @@ const UserForm = (props: UserFormProps): JSX.Element => {
   });
 
   const updateUser = (data: FormUser) => {
-    mutate({
+    const updated: FormUser = {
       email: data.email,
-      password: data.password,
       name: data.name,
-    });
+    };
+    if (data.password !== user.password) {
+      updated["password"] = data.password;
+    }
+    mutate(updated);
   };
-
-  client.invalidateQueries({
-    queryKey: ["users"],
-  });
 
   return (
     <div>
