@@ -30,6 +30,9 @@ export const customTheme = createTheme({
     common: {
       white: "#ffffff",
     },
+    text: {
+      disabled: "rgba(255,255,255,0.5)",
+    },
   },
   typography: {
     fontFamily: "'Outfit', sans-serif",

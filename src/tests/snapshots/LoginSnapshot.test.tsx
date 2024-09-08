@@ -42,7 +42,7 @@ it("Snapshots - Login", () => {
                 novalidate=""
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-10xu0kl-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-4qd01b-MuiFormControl-root-MuiTextField-root"
                 >
                   <div
                     class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-953pxc-MuiInputBase-root-MuiInput-root"
@@ -59,7 +59,7 @@ it("Snapshots - Login", () => {
                   </div>
                 </div>
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-10xu0kl-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-4qd01b-MuiFormControl-root-MuiTextField-root"
                 >
                   <div
                     class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-953pxc-MuiInputBase-root-MuiInput-root"
@@ -133,7 +133,7 @@ it("Snapshots - Login", () => {
               novalidate=""
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-10xu0kl-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-4qd01b-MuiFormControl-root-MuiTextField-root"
               >
                 <div
                   class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-953pxc-MuiInputBase-root-MuiInput-root"
@@ -150,7 +150,7 @@ it("Snapshots - Login", () => {
                 </div>
               </div>
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-10xu0kl-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-4qd01b-MuiFormControl-root-MuiTextField-root"
               >
                 <div
                   class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-953pxc-MuiInputBase-root-MuiInput-root"

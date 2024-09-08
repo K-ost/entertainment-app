@@ -5,6 +5,8 @@ import { User } from "../types";
 import Input from "../ui/Input";
 import useMutateData from "../hooks/useMutateData";
 import { useEffect } from "react";
+import { useNotificationStore } from "../store/useNotificationStore";
+import { useQueryClient } from "@tanstack/react-query";
 
 type UserFormProps = {
   user: User;
@@ -14,17 +16,24 @@ type FormUser = Omit<User, "id" | "bookmarks" | "role" | "avatar">;
 
 const UserForm = (props: UserFormProps): JSX.Element => {
   const { user } = props;
+  const { setMessage } = useNotificationStore();
+  const queryClient = useQueryClient();
+  queryClient.invalidateQueries({
+    queryKey: ["user"],
+  });
 
   const {
     register,
     handleSubmit,
     reset,
+    watch,
     formState: { errors },
-  } = useForm<FormUser>({
+  } = useForm<FormUser & { rePass: string }>({
     defaultValues: {
       email: user.email,
       name: user.name,
       password: user.password,
+      rePass: user.password,
     },
   });
 
@@ -47,6 +56,7 @@ const UserForm = (props: UserFormProps): JSX.Element => {
       updated["password"] = data.password;
     }
     mutate(updated);
+    setMessage("User has been updated");
   };
 
   return (
@@ -59,8 +69,10 @@ const UserForm = (props: UserFormProps): JSX.Element => {
             inputProps={{ ...register("name") }}
             placeholder="Name"
           />
+
           <Input
             type="email"
+            disabled
             inputProps={{
               ...register("email", {
                 required: "Required field",
@@ -74,6 +86,7 @@ const UserForm = (props: UserFormProps): JSX.Element => {
             error={errors.email ? true : false}
             helperText={errors.email?.message}
           />
+
           <Input
             type="password"
             inputProps={{
@@ -87,9 +100,25 @@ const UserForm = (props: UserFormProps): JSX.Element => {
             }}
             placeholder="Password"
             error={errors.password ? true : false}
-            sx={{ marginBottom: 4 }}
             helperText={errors.password?.message}
           />
+
+          <Input
+            type="password"
+            inputProps={{
+              ...register("rePass", {
+                required: "Required field",
+                validate: (val: string) => {
+                  if (watch("password") !== val) return "Passwords don't match";
+                },
+              }),
+            }}
+            placeholder="Repeat password"
+            error={errors.rePass ? true : false}
+            sx={{ mb: 4 }}
+            helperText={errors.rePass?.message}
+          />
+
           <Btn variant="contained" color="error" type="submit">
             {isPending ? "Loading..." : "Update"}
           </Btn>

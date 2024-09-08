@@ -8,7 +8,7 @@ const CustomInput = styled(TextField)<TextFieldProps>(({ theme }) => ({
     background: 0,
     border: 0,
     boxSizing: "border-box",
-    color: "white",
+    color: theme.palette.common.white,
     fontFamily: theme.typography.fontFamily,
     fontSize: theme.typography.fontSize,
     fontWeight: 300,
@@ -22,6 +22,12 @@ const CustomInput = styled(TextField)<TextFieldProps>(({ theme }) => ({
       height: "24px",
       WebkitAppearance: "none",
     },
+    "&.Mui-disabled": {
+      color: theme.palette.text.disabled,
+    },
+  },
+  "& .MuiFormLabel-root": {
+    color: theme.palette.text.disabled,
   },
   "& .MuiInputBase-root::before": {
     borderBottomColor: theme.palette.common.white,

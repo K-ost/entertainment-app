@@ -136,7 +136,7 @@ it("Snapshots - Home page", () => {
                 class="MuiBox-root css-nhy50b"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-pppgdj-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-19t6qcd-MuiFormControl-root-MuiTextField-root"
                 >
                   <div
                     class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-953pxc-MuiInputBase-root-MuiInput-root"
@@ -562,7 +562,7 @@ it("Snapshots - Home page", () => {
               class="MuiBox-root css-nhy50b"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-pppgdj-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-19t6qcd-MuiFormControl-root-MuiTextField-root"
               >
                 <div
                   class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-953pxc-MuiInputBase-root-MuiInput-root"
