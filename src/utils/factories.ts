@@ -18,4 +18,5 @@ export const UserFactory = Factory.Sync.makeFactory<User>({
   email: "test@test.com",
   role: "user",
   password: "1234567",
+  name: "Name",
 });

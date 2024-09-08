@@ -24,12 +24,10 @@ const UserCard = (props: UserCardProps): JSX.Element => {
   return (
     <Card data-testid={`usercard-${user.id}`}>
       <Box>
-        {user.name && (
-          <Typography variant="body2" fontWeight={300}>
-            {user.name}
-          </Typography>
-        )}
-        <Typography variant="body1">{user.email}</Typography>
+        {user.name && <Typography variant="body2">{user.name}</Typography>}
+        <Typography variant="body1" fontWeight={300}>
+          {user.email}
+        </Typography>
       </Box>
       {user.role !== "admin" && (
         <Btn

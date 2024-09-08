@@ -4,6 +4,7 @@ import Btn from "../ui/Btn";
 import { User } from "../types";
 import Input from "../ui/Input";
 import useMutateData from "../hooks/useMutateData";
+import { useEffect } from "react";
 
 type UserFormProps = {
   user: User;
@@ -17,8 +18,19 @@ const UserForm = (props: UserFormProps): JSX.Element => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
-  } = useForm<FormUser>();
+  } = useForm<FormUser>({
+    defaultValues: {
+      email: user.email,
+      name: user.name,
+      password: user.password,
+    },
+  });
+
+  useEffect(() => {
+    reset(user);
+  }, [user]);
 
   const { mutate, isPending } = useMutateData<FormUser>({
     key: ["users"],
@@ -39,18 +51,17 @@ const UserForm = (props: UserFormProps): JSX.Element => {
 
   return (
     <div>
-      <Typography variant="h3">Form</Typography>
+      <Typography variant="h3">Personal data</Typography>
       <Box>
         <form onSubmit={handleSubmit(updateUser)} noValidate>
           <Input
             type="text"
-            inputProps={{ defaultValue: user.name, ...register("name") }}
+            inputProps={{ ...register("name") }}
             placeholder="Name"
           />
           <Input
             type="email"
             inputProps={{
-              defaultValue: user.email,
               ...register("email", {
                 required: "Required field",
                 pattern: {
@@ -66,7 +77,6 @@ const UserForm = (props: UserFormProps): JSX.Element => {
           <Input
             type="password"
             inputProps={{
-              defaultValue: user.password,
               ...register("password", {
                 required: "Required field",
                 minLength: {

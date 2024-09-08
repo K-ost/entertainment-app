@@ -43,24 +43,26 @@ function ProfilePage() {
         </Btn>
       </PageTitle>
 
-      <Typography variant="h4">
-        Hi, {currentUser.data?.name} ({currentUser.data?.email})
-      </Typography>
+      <div>
+        <Typography variant="h4">
+          Hi, {currentUser.data?.name} ({currentUser.data?.email})
+        </Typography>
 
-      <Grid container spacing={isMobile ? 2 : 4}>
-        <Grid item xs={12} sm={12} lg={6}>
-          {currentUser.isSuccess && <UserForm user={currentUser.data} />}
+        <Grid container spacing={isMobile ? 2 : 4}>
+          <Grid item xs={12} sm={12} lg={6}>
+            {currentUser.isSuccess && <UserForm user={currentUser.data} />}
+          </Grid>
+          <Grid item xs={12} sm={12} lg={6}>
+            {auth?.user.role === "admin" && (
+              <>
+                <Typography variant="h3">Users</Typography>
+                {allUsers.isSuccess && <UsersList users={allUsers.data} />}
+                {allUsers.isLoading && <UserSkelets />}
+              </>
+            )}
+          </Grid>
         </Grid>
-        <Grid item xs={12} sm={12} lg={6}>
-          {auth?.user.role === "admin" && (
-            <>
-              <Typography variant="h3">Users</Typography>
-              {allUsers.isSuccess && <UsersList users={allUsers.data} />}
-              {allUsers.isLoading && <UserSkelets />}
-            </>
-          )}
-        </Grid>
-      </Grid>
+      </div>
     </Layout>
   );
 }

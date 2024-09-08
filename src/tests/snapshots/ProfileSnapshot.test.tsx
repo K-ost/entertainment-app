@@ -174,22 +174,24 @@ it("Snapshots - Profile page", () => {
                     />
                   </button>
                 </div>
-                <h4
-                  class="MuiTypography-root MuiTypography-h4 css-5lbw0b-MuiTypography-root"
-                >
-                  Hi, 
-                   (
-                  )
-                </h4>
-                <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-4 css-480o17-MuiGrid-root"
-                >
+                <div>
+                  <h4
+                    class="MuiTypography-root MuiTypography-h4 css-5lbw0b-MuiTypography-root"
+                  >
+                    Hi, 
+                     (
+                    )
+                  </h4>
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 css-f0xsrb-MuiGrid-root"
-                  />
-                  <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 css-f0xsrb-MuiGrid-root"
-                  />
+                    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-4 css-480o17-MuiGrid-root"
+                  >
+                    <div
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 css-f0xsrb-MuiGrid-root"
+                    />
+                    <div
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 css-f0xsrb-MuiGrid-root"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -357,22 +359,24 @@ it("Snapshots - Profile page", () => {
                   />
                 </button>
               </div>
-              <h4
-                class="MuiTypography-root MuiTypography-h4 css-5lbw0b-MuiTypography-root"
-              >
-                Hi, 
-                 (
-                )
-              </h4>
-              <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-4 css-480o17-MuiGrid-root"
-              >
+              <div>
+                <h4
+                  class="MuiTypography-root MuiTypography-h4 css-5lbw0b-MuiTypography-root"
+                >
+                  Hi, 
+                   (
+                  )
+                </h4>
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 css-f0xsrb-MuiGrid-root"
-                />
-                <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 css-f0xsrb-MuiGrid-root"
-                />
+                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-4 css-480o17-MuiGrid-root"
+                >
+                  <div
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 css-f0xsrb-MuiGrid-root"
+                  />
+                  <div
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 css-f0xsrb-MuiGrid-root"
+                  />
+                </div>
               </div>
             </div>
           </div>
