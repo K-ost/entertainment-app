@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { Box, Typography } from "@mui/material";
+import { Box, CircularProgress, Typography } from "@mui/material";
 import Btn from "../ui/Btn";
 import { User } from "../types";
 import Input from "../ui/Input";
@@ -120,7 +120,10 @@ const UserForm = (props: UserFormProps): JSX.Element => {
           />
 
           <Btn variant="contained" color="error" type="submit">
-            {isPending ? "Loading..." : "Update"}
+            Update
+            {isPending && (
+              <CircularProgress size={20} color="secondary" sx={{ ml: 2 }} />
+            )}
           </Btn>
         </form>
       </Box>

@@ -1,8 +1,8 @@
-import { BoxProps, Button, styled } from "@mui/material";
+import { BoxProps, Button, ButtonProps, styled } from "@mui/material";
 import play from "../assets/play.svg";
 
 // Styled
-export const PlayButton = styled(Button)<BoxProps>(({ theme }) => ({
+export const PlayButton = styled(Button)<ButtonProps>(({ theme }) => ({
   backgroundColor: "rgba(255, 255, 255, 0.25)",
   backgroundImage: `url(${play})`,
   backgroundPosition: "9px center",
@@ -26,8 +26,12 @@ export const PlayButton = styled(Button)<BoxProps>(({ theme }) => ({
   },
 }));
 
-const Play = (): JSX.Element => {
-  return <PlayButton className="playBtn">Play</PlayButton>;
+const Play = (props: ButtonProps): JSX.Element => {
+  return (
+    <PlayButton className="playBtn" {...props}>
+      Play
+    </PlayButton>
+  );
 };
 
 export default Play;

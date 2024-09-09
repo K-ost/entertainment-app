@@ -29,7 +29,7 @@ const NavMenu = (): JSX.Element => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/movies">
+          <NavLink to="/movies" data-testid="toMovies">
             <svg
               width="20"
               height="20"

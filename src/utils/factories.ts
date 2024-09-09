@@ -1,13 +1,15 @@
 import * as Factory from "factory.ts";
 import { User, Video } from "../types";
 
+const movieTitles = ["Beyond Earth", "Bottom Gear", "Undiscovered Cities"];
+
 export const videoFactory = Factory.Sync.makeFactory<Video>({
   id: Factory.each((i) => i.toString()),
   category: "Movie",
   isTrending: false,
   rating: "PG",
   thumbnail: "http://link",
-  title: Factory.each((i) => `Custom title ${i}`),
+  title: Factory.each((i) => movieTitles[i]),
   year: 2019,
 });
 

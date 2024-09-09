@@ -56,6 +56,7 @@ it("Snapshots - Home page", () => {
                   <li>
                     <a
                       class=""
+                      data-testid="toMovies"
                       href="/movies"
                     >
                       <svg
@@ -482,6 +483,7 @@ it("Snapshots - Home page", () => {
                 <li>
                   <a
                     class=""
+                    data-testid="toMovies"
                     href="/movies"
                   >
                     <svg

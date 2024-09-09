@@ -39,6 +39,6 @@ export const bookmarksNotification = (
   isBookmarked: boolean
 ): string => {
   return !isBookmarked
-    ? `The film of "${title}" has been added to your bookmarks`
-    : `The film of "${title}" has just been removed from your bookmarks`;
+    ? `The film of "${title}" has been added to bookmarks`
+    : `The film of "${title}" has just been removed from bookmarks`;
 };

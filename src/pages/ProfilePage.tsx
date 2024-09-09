@@ -49,10 +49,10 @@ function ProfilePage() {
         </Typography>
 
         <Grid container spacing={isMobile ? 2 : 4}>
-          <Grid item xs={12} sm={12} lg={6}>
+          <Grid item xs={12} md={6}>
             {currentUser.isSuccess && <UserForm user={currentUser.data} />}
           </Grid>
-          <Grid item xs={12} sm={12} lg={6}>
+          <Grid item xs={12} md={6}>
             {auth?.user.role === "admin" && (
               <>
                 <Typography variant="h3">Users</Typography>

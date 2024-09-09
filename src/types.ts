@@ -1,4 +1,5 @@
 export type VideoViewType = "card" | "trend";
+export type Rating = "PG" | "E" | "18+";
 
 export type VideoCategory = "Movie" | "TV Series";
 
@@ -8,7 +9,7 @@ export type Video = {
   thumbnail: string;
   year: number;
   category: VideoCategory;
-  rating: string;
+  rating: Rating;
   isTrending: boolean;
 };
 

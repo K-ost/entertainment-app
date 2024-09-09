@@ -21,7 +21,6 @@ function MoviesScreen() {
       <PageTitle title="Movies">
         {isSuccess && <Sorting setSort={setSort} value={sort} />}
       </PageTitle>
-
       <CardList
         data={isSuccess ? data : []}
         isError={isError}
