@@ -5,11 +5,13 @@ const client = new QueryClient();
 
 export const Wrap = ({
   children,
+  initialEntries,
 }: {
   children: React.ReactNode;
+  initialEntries?: string[];
 }): JSX.Element => {
   return (
-    <MemoryRouter>
+    <MemoryRouter initialEntries={initialEntries}>
       <QueryClientProvider client={client}>{children}</QueryClientProvider>
     </MemoryRouter>
   );

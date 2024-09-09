@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 
 type PageTitleProps = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   title: string;
 };
 

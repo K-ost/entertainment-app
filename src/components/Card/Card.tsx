@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
 import { useAuthStore } from "../../store/useAuthStore";
 import useMutateData from "../../hooks/useMutateData";
@@ -53,7 +53,7 @@ const Card = (props: CardProps): JSX.Element => {
       <Box sx={{ position: "relative" }} data-testid={`videocard-${el.id}`}>
         <ImgBox slide={isSlide}>
           <img src={getImageLink(el.thumbnail)} alt="" />
-          <Play onClick={() => setDetails(true)} />
+          <Play onClick={() => navigate(`/movies/${el.id}`)} />
         </ImgBox>
         <ItemBookMark>
           <Bookmark

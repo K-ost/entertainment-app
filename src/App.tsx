@@ -8,6 +8,7 @@ import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
 import ProfilePage from "./pages/ProfilePage";
 import SearchPage from "./pages/SearchPage";
+import DetailedMovie from "./pages/DetailedMovie";
 import { useAuthStore } from "./store/useAuthStore";
 import PublicRoutes from "./components/PublicRoutes";
 import { useNotificationStore } from "./store/useNotificationStore";
@@ -23,6 +24,7 @@ function App() {
       <Routes>
         <Route path="/" index element={<Home />} />
         <Route path="/movies" element={<MoviesScreen />} />
+        <Route path="/movies/:id" element={<DetailedMovie />} />
         <Route path="/tv" element={<TvPage />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/" element={<PublicRoutes isAuth={isAuth} />}>

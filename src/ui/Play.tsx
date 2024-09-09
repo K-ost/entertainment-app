@@ -1,4 +1,4 @@
-import { BoxProps, Button, ButtonProps, styled } from "@mui/material";
+import { Button, ButtonProps, styled } from "@mui/material";
 import play from "../assets/play.svg";
 
 // Styled
