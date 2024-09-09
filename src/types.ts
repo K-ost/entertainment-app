@@ -33,6 +33,14 @@ export type Film = {
   website: string;
 };
 
+export type Comment = {
+  id: number;
+  movieId: string;
+  username: string;
+  description: string;
+  createdAt: Date;
+};
+
 export type UserRole = "admin" | "user";
 
 export type User = {

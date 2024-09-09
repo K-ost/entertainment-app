@@ -4,9 +4,9 @@ import PageTitle from "../ui/PageTitle";
 import useQueryData from "../hooks/useQueryData";
 import { Video } from "../types";
 import AlertError from "../components/AlertError";
-import { Typography } from "@mui/material";
 import Details from "../components/Details";
 import DetailsSkelets from "../components/Details/Skelets";
+import CommentsList from "../components/Comments";
 
 function DetailedMovie() {
   const { id } = useParams();
@@ -22,8 +22,8 @@ function DetailedMovie() {
       {isSuccess && <Details data={data} />}
       {isLoading && <DetailsSkelets />}
       {isError && <AlertError />}
-      <Typography variant="h3">Comments</Typography>
-      No comments yet.
+
+      <CommentsList movieId={id!} />
     </Layout>
   );
 }
