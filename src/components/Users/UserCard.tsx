@@ -1,4 +1,4 @@
-import { Box, BoxProps, styled, Typography, useTheme } from "@mui/material";
+import { Box, BoxProps, styled, Typography } from "@mui/material";
 import { User } from "../../types";
 import Btn from "../../ui/Btn";
 

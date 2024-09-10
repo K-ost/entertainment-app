@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
 import { useAuthStore } from "../../store/useAuthStore";
 import useMutateData from "../../hooks/useMutateData";
