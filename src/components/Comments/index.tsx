@@ -27,7 +27,11 @@ const CommentsList = (props: CommentsListProps): JSX.Element => {
       </Typography>
 
       {isLoading && (
-        <Typography variant="body1" sx={{ mb: 4 }}>
+        <Typography
+          variant="body1"
+          sx={{ mb: 4 }}
+          data-testid="commentsLoading"
+        >
           Loading...
         </Typography>
       )}

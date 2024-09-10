@@ -38,7 +38,7 @@ export type Comment = {
   movieId: string;
   username: string;
   description: string;
-  createdAt: Date;
+  createdAt: Date | string;
 };
 
 export type UserRole = "admin" | "user";

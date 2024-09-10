@@ -51,7 +51,7 @@ const CommentItem = (props: CommentItemProps): JSX.Element => {
   };
 
   return (
-    <CommentBox>
+    <CommentBox data-testid={`commentTest-${comment.id}`}>
       <Box display="flex" alignItems="center" sx={{ mb: 1 }}>
         <Typography variant="body1" color={theme.palette.text.disabled}>
           {comment.username}
