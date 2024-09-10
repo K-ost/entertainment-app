@@ -1,5 +1,6 @@
 {
   "name": "entertainment-web-app",
+  "homepage": "https://K-ost.github.io/entertainment-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,13 +11,16 @@
     "preview": "vite preview",
     "server": "json-server-auth db.json -p 8000 -d 300",
     "start": "concurrently \"npm run dev\" \"npm run server\"",
-    "test": "vitest"
+    "test": "vitest",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@mui/material": "^5.15.17",
     "@tanstack/react-query": "^5.32.0",
+    "gh-pages": "^6.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.53.0",
