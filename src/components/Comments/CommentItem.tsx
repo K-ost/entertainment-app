@@ -79,6 +79,7 @@ const CommentItem = (props: CommentItemProps): JSX.Element => {
               top: theme.spacing(1),
             }}
             onClick={removeHandler}
+            data-testid={`removeComment-${comment.id}`}
           >
             &times;
           </Btn>
