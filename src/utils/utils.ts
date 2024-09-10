@@ -42,3 +42,31 @@ export const bookmarksNotification = (
     ? `The film of "${title}" has been added to bookmarks`
     : `The film of "${title}" has just been removed from bookmarks`;
 };
+
+const numMoreThanTen = (num: number): string =>
+  num >= 10 ? String(num) : `0${num}`;
+
+export const createDate = (date: Date | string, time?: boolean): string => {
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "Ocrober",
+    "November",
+    "December",
+  ];
+  const month = months[new Date(date).getMonth()];
+  const day = new Date(date).getDate();
+  const year = new Date(date).getFullYear();
+  const hours = numMoreThanTen(new Date(date).getHours());
+  const minutes = numMoreThanTen(new Date(date).getMinutes());
+  return time
+    ? `${month} ${day}, ${year}, ${hours}:${minutes}`
+    : `${month} ${day}, ${year}`;
+};

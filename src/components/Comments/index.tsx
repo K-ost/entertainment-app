@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material";
 import { Comment } from "../../types";
 import CommentForm from "./CommentForm";
 import useQueryData from "../../hooks/useQueryData";
+import CommentItem from "./CommentItem";
 
 type CommentsListProps = {
   movieId: string;
@@ -31,10 +32,7 @@ const CommentsList = (props: CommentsListProps): JSX.Element => {
 
       {isSuccess &&
         comments.map((comment) => (
-          <Box key={comment.id}>
-            <p>{comment.username}</p>
-            <p>{comment.description}</p>
-          </Box>
+          <CommentItem key={comment.id} comment={comment} />
         ))}
 
       {isSuccess && !comments.length && (

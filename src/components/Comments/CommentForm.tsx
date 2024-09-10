@@ -1,11 +1,10 @@
-import { Typography } from "@mui/material";
+import { useQueryClient } from "@tanstack/react-query";
+import { useForm } from "react-hook-form";
+import { useAuthStore } from "../../store/useAuthStore";
 import Btn from "../../ui/Btn";
 import Input from "../../ui/Input";
-import { useAuthStore } from "../../store/useAuthStore";
-import { useForm } from "react-hook-form";
 import { Comment } from "../../types";
 import useMutateData from "../../hooks/useMutateData";
-import { useQueryClient } from "@tanstack/react-query";
 
 type FormComment = Pick<Comment, "description">;
 
@@ -46,10 +45,11 @@ const CommentForm = (props: CommentFormProps): JSX.Element => {
     queryKey: ["comments"],
   });
 
+  if (!auth) return <></>;
+
   return (
     <div>
       <form onSubmit={handleSubmit(addCommentHandler)}>
-        <Typography variant="body2">{auth?.user.name}</Typography>
         <Input
           minRows={2}
           maxRows={3}

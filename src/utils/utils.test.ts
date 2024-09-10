@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   bookmarksNotification,
   checkBookmark,
+  createDate,
   getSortQuery,
   getStyleCondition,
   idsToString,
@@ -68,5 +69,15 @@ describe("Utils", () => {
     const result = bookmarksNotification("Movie", true);
     expect(result.includes("added")).toBe(false);
     expect(result.includes("removed")).toBe(true);
+  });
+
+  it("createDate", () => {
+    const result = createDate("2024-09-05T07:08:51.945Z");
+    expect(result).toStrictEqual("September 5, 2024");
+  });
+
+  it("createDate with time", () => {
+    const result = createDate("2024-09-10T07:08:51.945Z", true);
+    expect(result).toStrictEqual("September 10, 2024, 10:08");
   });
 });
