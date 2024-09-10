@@ -1,6 +1,11 @@
 import { Box, BoxProps, styled, Typography, useTheme } from "@mui/material";
 import { Comment } from "../../types";
 import { createDate } from "../../utils/utils";
+import Btn from "../../ui/Btn";
+import useMutateData from "../../hooks/useMutateData";
+import { useQueryClient } from "@tanstack/react-query";
+import { useAuthStore } from "../../store/useAuthStore";
+import { useNotificationStore } from "../../store/useNotificationStore";
 
 type CommentItemProps = {
   comment: Comment;
@@ -12,6 +17,7 @@ const CommentBox = styled(Box)<BoxProps>(({ theme }) => ({
   borderRadius: 8,
   marginBottom: theme.spacing(2),
   padding: `${theme.spacing(2)} ${theme.spacing(3)}`,
+  position: "relative",
 }));
 
 const CommentDate = styled(Box)<BoxProps>(({ theme }) => ({
@@ -25,6 +31,24 @@ const CommentDate = styled(Box)<BoxProps>(({ theme }) => ({
 const CommentItem = (props: CommentItemProps): JSX.Element => {
   const { comment } = props;
   const theme = useTheme();
+  const { auth } = useAuthStore();
+  const { setMessage } = useNotificationStore();
+  const queryClient = useQueryClient();
+
+  const { mutate } = useMutateData({
+    key: ["comments"],
+    method: "DELETE",
+    uri: `/comments/${comment.id}`,
+  });
+
+  queryClient.invalidateQueries({
+    queryKey: ["comments"],
+  });
+
+  const removeHandler = () => {
+    mutate(undefined);
+    setMessage("Comment has been removed");
+  };
 
   return (
     <CommentBox>
@@ -41,6 +65,24 @@ const CommentItem = (props: CommentItemProps): JSX.Element => {
             {createDate(comment.createdAt, true)}
           </Typography>
         </CommentDate>
+        {auth?.user.role === "admin" && (
+          <Btn
+            variant="contained"
+            color="error"
+            sx={{
+              padding: 0,
+              height: "30px",
+              width: "30px",
+              minWidth: 0,
+              position: "absolute",
+              right: theme.spacing(1),
+              top: theme.spacing(1),
+            }}
+            onClick={removeHandler}
+          >
+            &times;
+          </Btn>
+        )}
       </Box>
       <Typography variant="body1" fontWeight={400}>
         {comment.description}

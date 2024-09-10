@@ -5,6 +5,7 @@ import Btn from "../../ui/Btn";
 import Input from "../../ui/Input";
 import { Comment } from "../../types";
 import useMutateData from "../../hooks/useMutateData";
+import { CircularProgress } from "@mui/material";
 
 type FormComment = Pick<Comment, "description">;
 
@@ -24,7 +25,7 @@ const CommentForm = (props: CommentFormProps): JSX.Element => {
     formState: { errors },
   } = useForm<FormComment>();
 
-  const { mutate } = useMutateData<Omit<Comment, "id">>({
+  const { mutate, isPending } = useMutateData<Omit<Comment, "id">>({
     key: ["comments"],
     method: "POST",
     uri: "/comments",
@@ -69,6 +70,9 @@ const CommentForm = (props: CommentFormProps): JSX.Element => {
         />
         <Btn variant="contained" color="error" type="submit">
           Add comment
+          {isPending && (
+            <CircularProgress size={20} color="secondary" sx={{ ml: 2 }} />
+          )}
         </Btn>
       </form>
     </div>

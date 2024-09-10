@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import { Comment } from "../../types";
 import CommentForm from "./CommentForm";
 import useQueryData from "../../hooks/useQueryData";
@@ -17,12 +17,14 @@ const CommentsList = (props: CommentsListProps): JSX.Element => {
     isSuccess,
   } = useQueryData<Comment[]>({
     key: ["comments"],
-    uri: "/comments",
+    uri: `/comments?movieId=${movieId}`,
   });
 
   return (
     <div>
-      <Typography variant="h3">Comments</Typography>
+      <Typography variant="h3">
+        Comments {isSuccess && comments.length && `(${comments.length})`}
+      </Typography>
 
       {isLoading && (
         <Typography variant="body1" sx={{ mb: 4 }}>
