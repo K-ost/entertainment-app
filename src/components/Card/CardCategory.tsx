@@ -13,23 +13,16 @@ const CardCategory = (props: CardCategoryProps): JSX.Element => {
   return (
     <MetaItem
       sx={{
-        paddingLeft: "18px",
+        alignItems: "center",
+        display: "flex",
         position: "relative",
-        "&::before": {
-          backgroundImage: `url(${category === "Movie" ? movieIcon : tvIcon})`,
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          content: '""',
-          display: "block",
-          height: "12px",
-          marginTop: "-6px",
-          left: 0,
-          top: "50%",
-          position: "absolute;",
-          width: "12px",
-        },
       }}
     >
+      <img
+        src={category === "Movie" ? movieIcon : tvIcon}
+        alt=""
+        style={{ display: "block", marginRight: 6 }}
+      />
       {category}
     </MetaItem>
   );

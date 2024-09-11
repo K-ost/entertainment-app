@@ -1,5 +1,4 @@
 import { Box, BoxProps, styled } from "@mui/material";
-import user from "../../assets/user.svg";
 
 // Styles
 export const Sidebar = styled(Box)<BoxProps>(({ theme }) => ({
@@ -46,17 +45,18 @@ export const Logo = styled(Box)<BoxProps>(({ theme }) => ({
 export const AsideUser = styled(Box)<BoxProps>(({ theme }) => ({
   "--size": "40px",
   "& a": {
-    background: `url(${user}) center / 20px no-repeat`,
     borderWith: 1,
     borderStyle: "solid",
     borderColor: theme.palette.common.white,
     borderRadius: "50%",
-    display: "block",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     height: "calc(var(--size) + 2px)",
     width: "calc(var(--size) + 2px)",
     margin: "0 auto",
   },
-  "& img": {
+  "& img.ava": {
     borderRadius: "50%",
     display: "block",
     height: "var(--size)",

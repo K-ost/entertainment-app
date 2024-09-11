@@ -122,20 +122,31 @@ it("Snapshots - Detailed movie page", () => {
                 </ul>
               </div>
               <div
-                class="MuiBox-root css-kyzppj"
+                class="MuiBox-root css-11t9thz"
               >
                 <a
                   data-testid="profileLink"
                   href="/profile"
-                />
+                >
+                  <img
+                    alt=""
+                    src="/src/assets/user.svg"
+                    style="width: 20px;"
+                  />
+                </a>
               </div>
             </div>
             <div
               class="MuiBox-root css-pi3l4k"
             >
               <div
-                class="MuiBox-root css-nhy50b"
+                class="MuiBox-root css-zmxu0b"
               >
+                <img
+                  alt=""
+                  src="/src/assets/search.svg"
+                  style="display: block; margin-right: 16px;"
+                />
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-19t6qcd-MuiFormControl-root-MuiTextField-root"
                 >
@@ -333,20 +344,31 @@ it("Snapshots - Detailed movie page", () => {
               </ul>
             </div>
             <div
-              class="MuiBox-root css-kyzppj"
+              class="MuiBox-root css-11t9thz"
             >
               <a
                 data-testid="profileLink"
                 href="/profile"
-              />
+              >
+                <img
+                  alt=""
+                  src="/src/assets/user.svg"
+                  style="width: 20px;"
+                />
+              </a>
             </div>
           </div>
           <div
             class="MuiBox-root css-pi3l4k"
           >
             <div
-              class="MuiBox-root css-nhy50b"
+              class="MuiBox-root css-zmxu0b"
             >
+              <img
+                alt=""
+                src="/src/assets/search.svg"
+                style="display: block; margin-right: 16px;"
+              />
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-19t6qcd-MuiFormControl-root-MuiTextField-root"
               >

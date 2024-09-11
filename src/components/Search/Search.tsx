@@ -6,17 +6,16 @@ import Input from "../../ui/Input";
 
 // Styles
 const SearchContainer = styled(Box)<BoxProps>(({ theme }) => ({
-  background: `url(${searchIcon}) 0 13px no-repeat`,
+  alignItems: "center",
+  display: "flex",
   paddingTop: 0,
   paddingRight: theme.spacing(4),
-  paddingLeft: "56px",
   [theme.breakpoints.down("lg")]: {
     marginLeft: theme.spacing(4),
   },
   [theme.breakpoints.down("md")]: {
     backgroundPosition: "0 15px",
     backgroundSize: "24px",
-    paddingLeft: "40px",
     paddingRight: theme.spacing(2),
     marginLeft: theme.spacing(2),
   },
@@ -34,8 +33,13 @@ const Search = (): JSX.Element => {
 
   return (
     <SearchContainer>
+      <img
+        src={searchIcon}
+        alt=""
+        style={{ display: "block", marginRight: theme.spacing(2) }}
+      />
       <Input
-        type="search"
+        type="text"
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           handleSearch(e.target.value)
         }

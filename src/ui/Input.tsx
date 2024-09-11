@@ -1,5 +1,4 @@
 import { styled, TextField, TextFieldProps } from "@mui/material";
-import close from "../assets/close.svg";
 
 const CustomInput = styled(TextField)<TextFieldProps>(({ theme }) => ({
   marginBottom: theme.spacing(2),
@@ -15,13 +14,6 @@ const CustomInput = styled(TextField)<TextFieldProps>(({ theme }) => ({
     height: "54px",
     lineHeight: "32px",
     padding: "14px 16px",
-    "&::-webkit-search-cancel-button": {
-      background: `url(${close}) center / 20px no-repeat`,
-      cursor: "pointer",
-      width: "24px",
-      height: "24px",
-      WebkitAppearance: "none",
-    },
     "&.Mui-disabled": {
       color: theme.palette.text.disabled,
     },

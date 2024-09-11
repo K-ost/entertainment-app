@@ -1,5 +1,6 @@
 import logo from "../../assets/logo.svg";
 import avatar from "../../assets/avatar.png";
+import user from "../../assets/user.svg";
 import { Link } from "react-router-dom";
 import { AsideUser, Sidebar, Logo } from "./AsideStyles";
 import { Tooltip } from "@mui/material";
@@ -19,10 +20,12 @@ const Aside = (): JSX.Element => {
 
       <AsideUser>
         <Link to="/profile" data-testid="profileLink">
-          {auth?.accessToken && (
+          {auth?.accessToken ? (
             <Tooltip title={auth.user.email} placement="right">
-              <img src={avatar} alt="" />
+              <img src={avatar} alt="" className="ava" />
             </Tooltip>
+          ) : (
+            <img src={user} alt="" style={{ width: "20px" }} />
           )}
         </Link>
       </AsideUser>
