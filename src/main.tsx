@@ -12,7 +12,7 @@ const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <HashRouter basename="/">
+    <HashRouter basename="/entertainment-app/">
       <QueryClientProvider client={queryClient}>
         <ThemeProvider theme={customTheme}>
           <MainStyles />
