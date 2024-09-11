@@ -1,12 +1,12 @@
 {
-  "name": "entertainment-web-app",
+  "name": "entertainment-app",
   "homepage": "https://k-ost.github.io/entertainment-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build --base=./",
+    "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "server": "json-server-auth db.json -p 8000 -d 300",
