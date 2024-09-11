@@ -10,7 +10,6 @@ This is a solution to the [Entertainment web app challenge on Frontend Mentor](h
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
 
 ## Overview
@@ -33,29 +32,24 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://github.com/K-ost/entertainment-app](https://github.com/K-ost/entertainment-app)
+- Live Site URL: [https://k-ost.github.io/entertainment-app/](https://k-ost.github.io/entertainment-app/)
 
 ## My process
 
 ### Built with
 
 - Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
 - Mobile-first workflow
+- Debugging and Tests
+- [MUI React](https://mui.com/) - Material UI React for styling
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [Zustand](https://zustand-demo.pmnd.rs/) - For state manager
+- [React Hook Form](https://react-hook-form.com/) - For form validation
+- [Tanstack Query](https://tanstack.com/query/latest) - For server requests
+- [JSON Server](https://www.npmjs.com/package/json-server) - For server imitation with auth
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Website - [https://github.com/K-ost/](https://github.com/K-ost/)
+- Frontend Mentor - [@K-ost](https://www.frontendmentor.io/profile/K-ost)
