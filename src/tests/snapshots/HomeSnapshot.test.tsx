@@ -148,17 +148,17 @@ it("Snapshots - Home page", () => {
                   style="display: block; margin-right: 16px;"
                 />
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-19t6qcd-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-1t1sr8a-MuiFormControl-root-MuiTextField-root"
                 >
                   <div
                     class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-953pxc-MuiInputBase-root-MuiInput-root"
                   >
                     <input
                       aria-invalid="false"
-                      class="MuiInputBase-input MuiInput-input MuiInputBase-inputTypeSearch css-c63i49-MuiInputBase-input-MuiInput-input"
+                      class="MuiInputBase-input MuiInput-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
                       id=":r0:"
                       placeholder="Search for movies or TV series"
-                      type="search"
+                      type="text"
                       value=""
                     />
                   </div>
@@ -586,17 +586,17 @@ it("Snapshots - Home page", () => {
                 style="display: block; margin-right: 16px;"
               />
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-19t6qcd-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-1t1sr8a-MuiFormControl-root-MuiTextField-root"
               >
                 <div
                   class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-953pxc-MuiInputBase-root-MuiInput-root"
                 >
                   <input
                     aria-invalid="false"
-                    class="MuiInputBase-input MuiInput-input MuiInputBase-inputTypeSearch css-c63i49-MuiInputBase-input-MuiInput-input"
+                    class="MuiInputBase-input MuiInput-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
                     id=":r0:"
                     placeholder="Search for movies or TV series"
-                    type="search"
+                    type="text"
                     value=""
                   />
                 </div>
