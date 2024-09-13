@@ -278,11 +278,7 @@
       "email": "admin@test.com",
       "password": "$2a$10$J8g9dxyNBM9Sth6VJd1YI.KM3//sF2PinAcBEcqS037B4Q6H.mRRW",
       "avatar": "",
-      "bookmarks": [
-        "1",
-        "10",
-        "6"
-      ],
+      "bookmarks": ["1"],
       "role": "admin",
       "name": "Konstantin",
       "id": 1
