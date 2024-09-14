@@ -41,13 +41,14 @@ Users should be able to:
 
 - Semantic HTML5 markup
 - Mobile-first workflow
-- Debugging and Tests
 - [MUI React](https://mui.com/) - Material UI React for styling
 - [React](https://reactjs.org/) - JS library
 - [Zustand](https://zustand-demo.pmnd.rs/) - For state manager
 - [React Hook Form](https://react-hook-form.com/) - For form validation
 - [Tanstack Query](https://tanstack.com/query/latest) - For server requests
+- [Render](https://render.com/) - Space for Server API
 - [JSON Server](https://www.npmjs.com/package/json-server) - For server imitation with auth
+- [Vitest](https://vitest.dev/) - Tool for testing and debugging as well as React Testing Library
 
 ## Author
 
