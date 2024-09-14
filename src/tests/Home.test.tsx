@@ -65,6 +65,8 @@ describe("Home page", () => {
       const list = screen.getAllByTestId(/toBookmarks-/);
       userEvent.click(list[0]);
     });
-    expect(await screen.findByText(/has been added/)).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText(/has been added/)).toBeInTheDocument();
+    });
   });
 });

@@ -18,7 +18,7 @@ function DetailedMovie() {
 
   return (
     <Layout>
-      <PageTitle title={isSuccess ? data.title : `MOVIE_ID: ${id}`} />
+      {isSuccess && <PageTitle title={data.title} />}
       {isSuccess && <Details data={data} />}
       {isLoading && <DetailsSkelets />}
       {isError && <AlertError />}

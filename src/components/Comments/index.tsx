@@ -3,6 +3,7 @@ import { Comment } from "../../types";
 import CommentForm from "./CommentForm";
 import useQueryData from "../../hooks/useQueryData";
 import CommentItem from "./CommentItem";
+import Skelet from "../../ui/Skelet";
 
 type CommentsListProps = {
   movieId: string;
@@ -27,13 +28,11 @@ const CommentsList = (props: CommentsListProps): JSX.Element => {
       </Typography>
 
       {isLoading && (
-        <Typography
-          variant="body1"
-          sx={{ mb: 4 }}
-          data-testid="commentsLoading"
-        >
-          Loading...
-        </Typography>
+        <div data-testid="commentsLoading">
+          {[...Array(3)].map((__, index) => (
+            <Skelet key={index} height={80} margin={10} />
+          ))}
+        </div>
       )}
 
       {isSuccess &&

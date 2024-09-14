@@ -168,15 +168,6 @@ it("Snapshots - Detailed movie page", () => {
                 class="MuiBox-root css-f9enc6"
               >
                 <div
-                  class="MuiBox-root css-15nespj"
-                >
-                  <h1
-                    class="MuiTypography-root MuiTypography-h1 css-1zu0ni-MuiTypography-root"
-                  >
-                    MOVIE_ID: undefined
-                  </h1>
-                </div>
-                <div
                   class="MuiBox-root css-0"
                   data-testid="detailsSkeletes"
                 >
@@ -223,12 +214,22 @@ it("Snapshots - Detailed movie page", () => {
                   >
                     Comments 
                   </h3>
-                  <p
-                    class="MuiTypography-root MuiTypography-body1 css-1yryl06-MuiTypography-root"
+                  <div
                     data-testid="commentsLoading"
                   >
-                    Loading...
-                  </p>
+                    <span
+                      class="MuiSkeleton-root MuiSkeleton-rounded MuiSkeleton-pulse css-1ffqikw-MuiSkeleton-root"
+                      style="height: 80px;"
+                    />
+                    <span
+                      class="MuiSkeleton-root MuiSkeleton-rounded MuiSkeleton-pulse css-1ffqikw-MuiSkeleton-root"
+                      style="height: 80px;"
+                    />
+                    <span
+                      class="MuiSkeleton-root MuiSkeleton-rounded MuiSkeleton-pulse css-1ffqikw-MuiSkeleton-root"
+                      style="height: 80px;"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -390,15 +391,6 @@ it("Snapshots - Detailed movie page", () => {
               class="MuiBox-root css-f9enc6"
             >
               <div
-                class="MuiBox-root css-15nespj"
-              >
-                <h1
-                  class="MuiTypography-root MuiTypography-h1 css-1zu0ni-MuiTypography-root"
-                >
-                  MOVIE_ID: undefined
-                </h1>
-              </div>
-              <div
                 class="MuiBox-root css-0"
                 data-testid="detailsSkeletes"
               >
@@ -445,12 +437,22 @@ it("Snapshots - Detailed movie page", () => {
                 >
                   Comments 
                 </h3>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1yryl06-MuiTypography-root"
+                <div
                   data-testid="commentsLoading"
                 >
-                  Loading...
-                </p>
+                  <span
+                    class="MuiSkeleton-root MuiSkeleton-rounded MuiSkeleton-pulse css-1ffqikw-MuiSkeleton-root"
+                    style="height: 80px;"
+                  />
+                  <span
+                    class="MuiSkeleton-root MuiSkeleton-rounded MuiSkeleton-pulse css-1ffqikw-MuiSkeleton-root"
+                    style="height: 80px;"
+                  />
+                  <span
+                    class="MuiSkeleton-root MuiSkeleton-rounded MuiSkeleton-pulse css-1ffqikw-MuiSkeleton-root"
+                    style="height: 80px;"
+                  />
+                </div>
               </div>
             </div>
           </div>
