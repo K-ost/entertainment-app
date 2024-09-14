@@ -17,8 +17,9 @@ This is a solution to the [Entertainment web app challenge on Frontend Mentor](h
 ### How to use
 
 Login to test user is:
-user@test.com
-1111
+
+- user@test.com
+- 1111
 
 or you can register your own user.
 
