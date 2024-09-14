@@ -13,8 +13,6 @@ import useMutateData from "../../hooks/useMutateData";
 import { useQueryClient } from "@tanstack/react-query";
 import { useAuthStore } from "../../store/useAuthStore";
 import { useNotificationStore } from "../../store/useNotificationStore";
-import { useState } from "react";
-import Skelet from "../../ui/Skelet";
 
 type CommentItemProps = {
   comment: Comment;

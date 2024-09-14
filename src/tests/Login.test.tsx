@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it } from "vitest";
+import { describe, expect, it } from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import nock from "nock";
@@ -76,30 +76,4 @@ describe("Login form", () => {
       expect(screen.getByText("Incorrect password")).toBeInTheDocument();
     });
   });
-
-  // it("Success - User has been logged", async () => {
-  //   await preRender();
-  //   const button = screen.getByRole("button", {
-  //     name: btnText,
-  //   });
-
-  //   nock(API_URL)
-  //     .post("/login", {
-  //       email: "test@user.com",
-  //       password: "12345",
-  //     })
-  //     .reply(200, { user: {}, accessToken: "token" });
-
-  //   const emailInput = screen.getByPlaceholderText("Email address");
-  //   const passInput = screen.getByPlaceholderText("Password");
-  //   await userEvent.type(emailInput, "test@user.com");
-  //   await userEvent.type(passInput, "12345");
-  //   await userEvent.click(button);
-
-  //   await waitFor(() => {
-  //     expect(screen.getByText(/succesfully been logged/)).toBeInTheDocument();
-  //     expect(screen.getByText("Trending")).toBeInTheDocument();
-  //     expect(screen.getByText(/Recommended/)).toBeInTheDocument();
-  //   });
-  // });
 });
