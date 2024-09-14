@@ -38,7 +38,7 @@ const BookmarkButton = styled(Button)<ButtonProps & { added?: string }>(
 const Bookmark = (props: ButtonProps & BookmarkProps): JSX.Element => {
   const { added } = props;
   return (
-    <BookmarkButton {...props} added={added}>
+    <BookmarkButton aria-label="Add to bookmark" {...props} added={added}>
       <svg
         width="12"
         height="14"

@@ -12,7 +12,7 @@ const NavMenu = (): JSX.Element => {
     <NavContainer>
       <ul>
         <li>
-          <NavLink to="/">
+          <NavLink to="/" aria-label="Home Page">
             <svg
               width="20"
               height="20"
@@ -29,7 +29,7 @@ const NavMenu = (): JSX.Element => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/movies" data-testid="toMovies">
+          <NavLink to="/movies" data-testid="toMovies" aria-label="Movies">
             <svg
               width="20"
               height="20"
@@ -46,7 +46,7 @@ const NavMenu = (): JSX.Element => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/tv">
+          <NavLink to="/tv" aria-label="TV">
             <svg
               width="20"
               height="20"
@@ -64,7 +64,7 @@ const NavMenu = (): JSX.Element => {
         </li>
         <li>
           <Badge badgeContent={bookmarksCount} color="error">
-            <NavLink to="/bookmarks">
+            <NavLink to="/bookmarks" aria-label="Bookmarks">
               <svg
                 width="17"
                 height="20"

@@ -105,7 +105,13 @@ function SignUpPage() {
         />
 
         <Box sx={{ padding: "24px 0" }}>
-          <Btn type="submit" variant="contained" color="error" fullWidth>
+          <Btn
+            type="submit"
+            variant="contained"
+            color="error"
+            aria-label="Create an account"
+            fullWidth
+          >
             {isPending ? "Loading..." : "Create an account"}
           </Btn>
         </Box>

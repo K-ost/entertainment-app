@@ -90,6 +90,7 @@ function LoginPage() {
             color="error"
             fullWidth
             disabled={false}
+            aria-label="Login to your account"
           >
             {isPending ? "Loading..." : "Login to your account"}
           </Btn>

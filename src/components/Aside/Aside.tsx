@@ -19,7 +19,7 @@ const Aside = (): JSX.Element => {
       <NavMenu />
 
       <AsideUser>
-        <Link to="/profile" data-testid="profileLink">
+        <Link to="/profile" data-testid="profileLink" aria-label="Profile">
           {auth?.accessToken ? (
             <Tooltip title={auth.user.email} placement="right">
               <img src={avatar} alt="" className="ava" />

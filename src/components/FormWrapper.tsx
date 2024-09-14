@@ -32,7 +32,7 @@ const FormWrapper = (props: FormWrapperProps): JSX.Element => {
   return (
     <Box>
       <Box sx={{ padding: isMobile ? "48px 0 58px" : "80px 0" }}>
-        <Link to="/">
+        <Link to="/" aria-label="Return to Home Page">
           <img
             src={logo}
             alt=""
