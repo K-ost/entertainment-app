@@ -1,4 +1,11 @@
-import { Box, BoxProps, styled, Typography, useTheme } from "@mui/material";
+import {
+  Box,
+  BoxProps,
+  CircularProgress,
+  styled,
+  Typography,
+  useTheme,
+} from "@mui/material";
 import { Comment } from "../../types";
 import { createDate } from "../../utils/utils";
 import Btn from "../../ui/Btn";
@@ -6,6 +13,8 @@ import useMutateData from "../../hooks/useMutateData";
 import { useQueryClient } from "@tanstack/react-query";
 import { useAuthStore } from "../../store/useAuthStore";
 import { useNotificationStore } from "../../store/useNotificationStore";
+import { useState } from "react";
+import Skelet from "../../ui/Skelet";
 
 type CommentItemProps = {
   comment: Comment;
@@ -35,19 +44,21 @@ const CommentItem = (props: CommentItemProps): JSX.Element => {
   const { setMessage } = useNotificationStore();
   const queryClient = useQueryClient();
 
-  const { mutate } = useMutateData({
+  const { mutate, isPending } = useMutateData({
     key: ["comments"],
     method: "DELETE",
     uri: `/comments/${comment.id}`,
   });
 
-  queryClient.invalidateQueries({
-    queryKey: ["comments"],
-  });
-
   const removeHandler = () => {
-    mutate(undefined);
-    setMessage("Comment has been removed");
+    mutate(undefined, {
+      onSuccess: () => {
+        queryClient.invalidateQueries({
+          queryKey: ["comments"],
+        });
+        setMessage("Comment has been removed");
+      },
+    });
   };
 
   return (
@@ -81,7 +92,11 @@ const CommentItem = (props: CommentItemProps): JSX.Element => {
             onClick={removeHandler}
             data-testid={`removeComment-${comment.id}`}
           >
-            &times;
+            {isPending ? (
+              <CircularProgress size={20} color="secondary" />
+            ) : (
+              <>&times;</>
+            )}
           </Btn>
         )}
       </Box>

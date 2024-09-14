@@ -38,13 +38,15 @@ const CommentForm = (props: CommentFormProps): JSX.Element => {
       movieId,
       username: auth?.user.name!,
     };
-    mutate(newComment);
+    mutate(newComment, {
+      onSuccess: () => {
+        queryClient.invalidateQueries({
+          queryKey: ["comments"],
+        });
+      },
+    });
     reset();
   };
-
-  queryClient.invalidateQueries({
-    queryKey: ["comments"],
-  });
 
   if (!auth) return <></>;
 
