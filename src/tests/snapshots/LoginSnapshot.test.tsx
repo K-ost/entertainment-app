@@ -21,6 +21,7 @@ it("Snapshots - Login", () => {
               class="MuiBox-root css-1ckqa5t"
             >
               <a
+                aria-label="Return to Home Page"
                 href="/"
               >
                 <img
@@ -79,6 +80,7 @@ it("Snapshots - Login", () => {
                   class="MuiBox-root css-12layeo"
                 >
                   <button
+                    aria-label="Login to your account"
                     class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorError MuiButton-fullWidth MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorError MuiButton-fullWidth css-mm0puw-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="submit"
@@ -112,6 +114,7 @@ it("Snapshots - Login", () => {
             class="MuiBox-root css-1ckqa5t"
           >
             <a
+              aria-label="Return to Home Page"
               href="/"
             >
               <img
@@ -170,6 +173,7 @@ it("Snapshots - Login", () => {
                 class="MuiBox-root css-12layeo"
               >
                 <button
+                  aria-label="Login to your account"
                   class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorError MuiButton-fullWidth MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorError MuiButton-fullWidth css-mm0puw-MuiButtonBase-root-MuiButton-root"
                   tabindex="0"
                   type="submit"

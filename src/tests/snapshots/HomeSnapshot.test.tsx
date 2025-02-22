@@ -35,6 +35,7 @@ it("Snapshots - Home page", () => {
                   <li>
                     <a
                       aria-current="page"
+                      aria-label="Home Page"
                       class="active"
                       href="/"
                     >
@@ -55,6 +56,7 @@ it("Snapshots - Home page", () => {
                   </li>
                   <li>
                     <a
+                      aria-label="Movies"
                       class=""
                       data-testid="toMovies"
                       href="/movies"
@@ -76,6 +78,7 @@ it("Snapshots - Home page", () => {
                   </li>
                   <li>
                     <a
+                      aria-label="TV"
                       class=""
                       href="/tv"
                     >
@@ -99,6 +102,7 @@ it("Snapshots - Home page", () => {
                       class="MuiBadge-root css-1c32n2y-MuiBadge-root"
                     >
                       <a
+                        aria-label="Bookmarks"
                         class=""
                         href="/bookmarks"
                       >
@@ -125,6 +129,7 @@ it("Snapshots - Home page", () => {
                 class="MuiBox-root css-11t9thz"
               >
                 <a
+                  aria-label="Profile"
                   data-testid="profileLink"
                   href="/profile"
                 >
@@ -473,6 +478,7 @@ it("Snapshots - Home page", () => {
                 <li>
                   <a
                     aria-current="page"
+                    aria-label="Home Page"
                     class="active"
                     href="/"
                   >
@@ -493,6 +499,7 @@ it("Snapshots - Home page", () => {
                 </li>
                 <li>
                   <a
+                    aria-label="Movies"
                     class=""
                     data-testid="toMovies"
                     href="/movies"
@@ -514,6 +521,7 @@ it("Snapshots - Home page", () => {
                 </li>
                 <li>
                   <a
+                    aria-label="TV"
                     class=""
                     href="/tv"
                   >
@@ -537,6 +545,7 @@ it("Snapshots - Home page", () => {
                     class="MuiBadge-root css-1c32n2y-MuiBadge-root"
                   >
                     <a
+                      aria-label="Bookmarks"
                       class=""
                       href="/bookmarks"
                     >
@@ -563,6 +572,7 @@ it("Snapshots - Home page", () => {
               class="MuiBox-root css-11t9thz"
             >
               <a
+                aria-label="Profile"
                 data-testid="profileLink"
                 href="/profile"
               >
